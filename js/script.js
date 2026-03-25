@@ -37,31 +37,41 @@ async function loadDictionary() {
   } catch (e) {
     // Fallback inline dictionary
     dictionary = {
-      "saya": { arti: "Kata ganti orang pertama tunggal", emoji: "🫵", kategori: "Kata Ganti" },
-      "kamu": { arti: "Kata ganti orang kedua", emoji: "👉", kategori: "Kata Ganti" },
-      "makan": { arti: "Memasukkan makanan ke dalam mulut", emoji: "🍽️", kategori: "Aktivitas" },
-      "minum": { arti: "Memasukkan cairan ke dalam mulut", emoji: "🥤", kategori: "Aktivitas" },
-      "tidur": { arti: "Keadaan istirahat dengan mata tertutup", emoji: "😴", kategori: "Aktivitas" },
-      "halo": { arti: "Salam pembuka", emoji: "👋", kategori: "Salam" },
-      "terima kasih": { arti: "Ungkapan rasa syukur", emoji: "🙏", kategori: "Salam" },
-      "maaf": { arti: "Permohonan ampun", emoji: "😔", kategori: "Salam" },
-      "ya": { arti: "Kata menyatakan persetujuan", emoji: "✅", kategori: "Respons" },
-      "tidak": { arti: "Kata menyatakan penolakan", emoji: "❌", kategori: "Respons" },
-      "tolong": { arti: "Permohonan bantuan", emoji: "🆘", kategori: "Respons" },
-      "senang": { arti: "Perasaan bahagia", emoji: "😄", kategori: "Perasaan" },
-      "sedih": { arti: "Perasaan tidak bahagia", emoji: "😢", kategori: "Perasaan" },
-      "sakit": { arti: "Kondisi tidak sehat", emoji: "🤒", kategori: "Kondisi" },
-      "lapar": { arti: "Perut kosong memerlukan makanan", emoji: "🤤", kategori: "Kondisi" },
-      "rumah": { arti: "Tempat tinggal", emoji: "🏠", kategori: "Tempat" },
-      "sekolah": { arti: "Lembaga pendidikan", emoji: "🏫", kategori: "Tempat" },
-      "pergi": { arti: "Berangkat atau meninggalkan tempat", emoji: "🏃", kategori: "Aktivitas" },
-      "datang": { arti: "Tiba di suatu tempat", emoji: "🤗", kategori: "Aktivitas" },
-      "air": { arti: "Cairan bening untuk kehidupan", emoji: "💧", kategori: "Benda" },
-      "nasi": { arti: "Makanan pokok dari beras", emoji: "🍚", kategori: "Makanan" },
-      "besar": { arti: "Ukuran melebihi rata-rata", emoji: "🐘", kategori: "Kata Sifat" },
-      "kecil": { arti: "Ukuran kurang dari rata-rata", emoji: "🐜", kategori: "Kata Sifat" }
+      "saya": { arti: "Kata ganti orang pertama tunggal", emoji: "🫵", kategori: "Kata Ganti", deskripsi_gerakan: "Tunjuk dada dengan jari telunjuk" },
+      "kamu": { arti: "Kata ganti orang kedua", emoji: "👉", kategori: "Kata Ganti", deskripsi_gerakan: "Tunjuk ke arah lawan bicara" },
+      "dia": { arti: "Kata ganti orang ketiga", emoji: "👈", kategori: "Kata Ganti", deskripsi_gerakan: "Tunjuk ke arah samping" },
+      "kami": { arti: "Kata ganti orang pertama jamak", emoji: "🤲", kategori: "Kata Ganti", deskripsi_gerakan: "Gerakan melingkari diri sendiri" },
+      "mereka": { arti: "Kata ganti orang ketiga jamak", emoji: "👥", kategori: "Kata Ganti", deskripsi_gerakan: "Tunjuk ke beberapa arah" },
+      "makan": { arti: "Memasukkan makanan ke dalam mulut", emoji: "🍽️", kategori: "Aktivitas", deskripsi_gerakan: "Buka-tutup tangan di depan mulut" },
+      "minum": { arti: "Memasukkan cairan ke dalam mulut", emoji: "🥤", kategori: "Aktivitas", deskripsi_gerakan: "Angkat tangan seperti memegang gelas ke mulut" },
+      "tidur": { arti: "Keadaan istirahat dengan mata tertutup", emoji: "😴", kategori: "Aktivitas", deskripsi_gerakan: "Miringkan kepala, tempelkan telapak tangan di pipi" },
+      "bangun": { arti: "Bangkit dari posisi tidur", emoji: "🌅", kategori: "Aktivitas", deskripsi_gerakan: "Angkat tangan dari bawah ke atas" },
+      "jalan": { arti: "Bergerak dengan melangkahkan kaki", emoji: "🚶", kategori: "Aktivitas", deskripsi_gerakan: "Gerakan dua jari seperti berjalan" },
+      "halo": { arti: "Salam pembuka", emoji: "👋", kategori: "Salam", deskripsi_gerakan: "Lambaikan tangan ke depan" },
+      "selamat": { arti: "Ucapan baik untuk momen tertentu", emoji: "🎉", kategori: "Salam", deskripsi_gerakan: "Tepuk tangan dan angkat ke atas" },
+      "terima kasih": { arti: "Ungkapan rasa syukur", emoji: "🙏", kategori: "Salam", deskripsi_gerakan: "Satukan kedua telapak tangan di depan dada" },
+      "maaf": { arti: "Permohonan ampun", emoji: "😔", kategori: "Salam", deskripsi_gerakan: "Kepalan tangan berputar di dada" },
+      "ya": { arti: "Kata yang menyatakan persetujuan", emoji: "✅", kategori: "Respons", deskripsi_gerakan: "Anggukkan kepala" },
+      "tidak": { arti: "Kata yang menyatakan penolakan", emoji: "❌", kategori: "Respons", deskripsi_gerakan: "Gelengkan kepala" },
+      "tolong": { arti: "Permohonan bantuan", emoji: "🆘", kategori: "Respons", deskripsi_gerakan: "Angkat tangan ke arah orang lain" },
+      "rumah": { arti: "Tempat tinggal", emoji: "🏠", kategori: "Tempat", deskripsi_gerakan: "Bentuk atap rumah dengan kedua tangan" },
+      "sekolah": { arti: "Lembaga pendidikan", emoji: "🏫", kategori: "Tempat", deskripsi_gerakan: "Bentuk buku terbuka dengan kedua tangan" },
+      "pasar": { arti: "Tempat jual beli", emoji: "🛒", kategori: "Tempat", deskripsi_gerakan: "Gerakan jual beli dengan tangan" },
+      "sakit": { arti: "Kondisi tidak sehat", emoji: "🤒", kategori: "Kondisi", deskripsi_gerakan: "Tunjuk bagian tubuh yang sakit" },
+      "senang": { arti: "Perasaan bahagia", emoji: "😄", kategori: "Perasaan", deskripsi_gerakan: "Kedua tangan bergerak ke atas dengan senyum lebar" },
+      "sedih": { arti: "Perasaan tidak bahagia", emoji: "😢", kategori: "Perasaan", deskripsi_gerakan: "Tarik sudut bibir ke bawah, tangan ke bawah" },
+      "lapar": { arti: "Perut kosong memerlukan makanan", emoji: "🤤", kategori: "Kondisi", deskripsi_gerakan: "Usap perut melingkar" },
+      "air": { arti: "Cairan bening untuk kehidupan", emoji: "💧", kategori: "Benda", deskripsi_gerakan: "Gerakan jari-jari turun seperti air menetes" },
+      "nasi": { arti: "Makanan pokok dari beras", emoji: "🍚", kategori: "Makanan", deskripsi_gerakan: "Gerakan tangan menggulung" },
+      "pergi": { arti: "Meninggalkan suatu tempat", emoji: "🏃", kategori: "Aktivitas", deskripsi_gerakan: "Arahkan tangan ke depan" },
+      "datang": { arti: "Tiba di suatu tempat", emoji: "🤗", kategori: "Aktivitas", deskripsi_gerakan: "Tarik tangan ke arah tubuh" },
+      "besar": { arti: "Ukuran melebihi rata-rata", emoji: "🐘", kategori: "Kata Sifat", deskripsi_gerakan: "Rentangkan kedua tangan lebar-lebar" },
+      "kecil": { arti: "Ukuran kurang dari rata-rata", emoji: "🐜", kategori: "Kata Sifat", deskripsi_gerakan: "Dekatkan ibu jari dan telunjuk" }
     };
   }
+
+  // ★ Expose dictionary globally so the modal engine can access it
+  window.__bisindoDict = dictionary;
 }
 
 // ===== NAVBAR =====
@@ -80,15 +90,6 @@ function initNavbar() {
       mobileOverlay?.classList.remove('open');
     });
   }
-
-  // Mark active nav link
-  const links = document.querySelectorAll('.nav-link, .mobile-menu .nav-link');
-  links.forEach(link => {
-    if (link.href === window.location.href ||
-        link.href.includes(currentPage || 'index')) {
-      link.classList.add('active');
-    }
-  });
 }
 
 // ===== ACCESSIBILITY =====
@@ -101,7 +102,6 @@ function initAccessibility() {
       isHighContrast = !isHighContrast;
       document.body.classList.toggle('high-contrast', isHighContrast);
       contrastBtn.classList.toggle('active', isHighContrast);
-      contrastBtn.title = isHighContrast ? 'Matikan Kontras Tinggi' : 'Aktifkan Kontras Tinggi';
       showToast(isHighContrast ? '🎨 Kontras tinggi aktif' : '🎨 Kontras normal', 'success');
     });
   }
@@ -111,7 +111,6 @@ function initAccessibility() {
       isLargeText = !isLargeText;
       document.body.classList.toggle('large-text', isLargeText);
       textBtn.classList.toggle('active', isLargeText);
-      textBtn.title = isLargeText ? 'Ukuran Normal' : 'Ukuran Teks Besar';
       showToast(isLargeText ? '🔍 Teks diperbesar' : '🔍 Teks normal', 'success');
     });
   }
@@ -119,7 +118,6 @@ function initAccessibility() {
 
 // ===== HOME PAGE =====
 function initHomePage() {
-  // Animate stats counter
   const stats = document.querySelectorAll('.stat-num[data-target]');
   stats.forEach(stat => {
     const target = parseInt(stat.dataset.target);
@@ -176,7 +174,6 @@ function initIndonesiaToBisindo() {
     clearResult();
   });
 
-  // Enter to translate
   textarea.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
@@ -184,7 +181,6 @@ function initIndonesiaToBisindo() {
     }
   });
 
-  // Example chips
   document.querySelectorAll('.example-chip').forEach(chip => {
     chip.addEventListener('click', () => {
       textarea.value = chip.dataset.text;
@@ -254,9 +250,6 @@ function clearResult() {
 function initBisindoToIndonesia() {
   const gestureBtns = document.querySelectorAll('.gesture-btn');
   const sentenceBuilder = document.getElementById('sentence-builder');
-  const translationOutput = document.getElementById('translation-output');
-  const outputText = document.getElementById('output-text');
-  const clearSentenceBtn = document.getElementById('btn-clear-sentence');
 
   if (!sentenceBuilder) return;
 
@@ -266,13 +259,12 @@ function initBisindoToIndonesia() {
     btn.addEventListener('click', () => {
       const word = btn.dataset.word;
       const emoji = btn.querySelector('.gesture-btn-emoji')?.textContent;
-
       selectedGestures.push({ word, emoji });
       renderSentence();
     });
   });
 
-  clearSentenceBtn?.addEventListener('click', () => {
+  document.getElementById('btn-clear-sentence')?.addEventListener('click', () => {
     selectedGestures = [];
     renderSentence();
   });
@@ -298,10 +290,7 @@ function renderSentence() {
     </span>
   `).join('');
 
-  const sentence = selectedGestures.map(g => {
-    const w = g.word.charAt(0).toUpperCase() + g.word.slice(1);
-    return w;
-  }).join(' ');
+  const sentence = selectedGestures.map(g => g.word.charAt(0).toUpperCase() + g.word.slice(1)).join(' ');
 
   if (outputText) outputText.textContent = sentence;
   if (translationOutput) translationOutput.style.display = 'block';
@@ -325,16 +314,13 @@ function initKamusPage() {
   let activeCategory = 'semua';
   let searchQuery = '';
 
-  // Render initial grid
   renderKamus();
 
-  // Search
   searchInput?.addEventListener('input', () => {
     searchQuery = searchInput.value.toLowerCase().trim();
     renderKamus();
   });
 
-  // Filter tabs
   filterTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       filterTabs.forEach(t => t.classList.remove('active'));
@@ -344,14 +330,9 @@ function initKamusPage() {
     });
   });
 
-  // Modal close
   modalClose?.addEventListener('click', closeModal);
-  modal?.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
+  modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
   function renderKamus() {
     kamusGrid.innerHTML = '';
@@ -363,13 +344,7 @@ function initKamusPage() {
     });
 
     if (filtered.length === 0) {
-      kamusGrid.innerHTML = `
-        <div class="no-results" style="grid-column: 1/-1">
-          <span class="no-icon">🔍</span>
-          <h3>Tidak ditemukan</h3>
-          <p>Kata "<strong>${searchQuery}</strong>" belum ada di kamus kami</p>
-        </div>
-      `;
+      kamusGrid.innerHTML = `<div class="no-results" style="grid-column: 1/-1"><span class="no-icon">🔍</span><h3>Tidak ditemukan</h3><p>Kata "<strong>${searchQuery}</strong>" belum ada di kamus kami</p></div>`;
       return;
     }
 
@@ -394,12 +369,10 @@ function initKamusPage() {
     document.getElementById('modal-word').textContent = word.charAt(0).toUpperCase() + word.slice(1);
     document.getElementById('modal-arti').textContent = data.arti;
     document.getElementById('modal-category').textContent = data.kategori || 'Umum';
-
     const contoh = document.getElementById('modal-contoh');
     if (contoh) contoh.textContent = data.contoh || '-';
     const gerakan = document.getElementById('modal-gerakan');
     if (gerakan) gerakan.textContent = data.deskripsi_gerakan || 'Lihat panduan gerakan BISINDO';
-
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -413,7 +386,6 @@ function closeModal() {
 
 // ===== EDUKASI PAGE =====
 function initEdukasiPage() {
-  // Animate on scroll (simple IntersectionObserver)
   const cards = document.querySelectorAll('.edu-card, .tip-item');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -434,7 +406,6 @@ function initEdukasiPage() {
 
 // ===== ABOUT PAGE =====
 function initAboutPage() {
-  // Simple entry animation
   const table = document.querySelector('.innovate-table');
   if (table) {
     table.querySelectorAll('tr').forEach((row, i) => {
@@ -456,7 +427,7 @@ function initContactPage() {
   });
 }
 
-// ===== TOAST NOTIFICATION =====
+// ===== TOAST =====
 function showToast(message, type = '') {
   let toast = document.querySelector('.toast');
   if (!toast) {
@@ -466,7 +437,6 @@ function showToast(message, type = '') {
   }
   toast.className = `toast ${type}`;
   toast.textContent = message;
-
   setTimeout(() => toast.classList.add('show'), 10);
   setTimeout(() => toast.classList.remove('show'), 3200);
 }
@@ -475,7 +445,6 @@ function showToast(message, type = '') {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
     e.preventDefault();
-    const target = document.querySelector(anchor.getAttribute('href'));
-    target?.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector(anchor.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
   });
 });

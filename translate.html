@@ -6,6 +6,387 @@
   <title>Translate — SignBridge+</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤟</text></svg>">
+
+  <style>
+    /* ========================================
+       BISINDO VIDEO MODAL STYLES
+    ======================================== */
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    /* Overlay backdrop */
+    .bisindo-modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      background: rgba(5, 10, 24, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .bisindo-modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* Modal box */
+    .bisindo-modal {
+      background: #0d1628;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      width: 100%;
+      max-width: 740px;
+      max-height: 90vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(26,110,255,0.2);
+      transform: scale(0.88) translateY(30px);
+      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .bisindo-modal-overlay.open .bisindo-modal {
+      transform: scale(1) translateY(0);
+    }
+
+    /* Modal top bar (fake video chrome) */
+    .modal-chrome {
+      background: #070e1e;
+      padding: 0.875rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .chrome-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .chrome-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    .chrome-dot:nth-child(1) { background: #FF5F57; }
+    .chrome-dot:nth-child(2) { background: #FEBC2E; }
+    .chrome-dot:nth-child(3) { background: #28C840; }
+    .chrome-title {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      margin-left: 0.5rem;
+    }
+    .chrome-close-btn {
+      margin-left: auto;
+      background: rgba(255,255,255,0.07);
+      border: none;
+      color: rgba(255,255,255,0.5);
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .chrome-close-btn:hover {
+      background: rgba(255,95,87,0.3);
+      color: #FF5F57;
+    }
+
+    /* Main video stage */
+    .modal-stage {
+      position: relative;
+      background: radial-gradient(ellipse at 30% 40%, rgba(26,110,255,0.15) 0%, transparent 65%),
+                  radial-gradient(ellipse at 80% 70%, rgba(0,200,150,0.1) 0%, transparent 60%),
+                  #050c1e;
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Animated grid background on stage */
+    .modal-stage::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(26,110,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26,110,255,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    /* Gesture display inside stage */
+    .gesture-stage-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    /* Big animated gesture emoji */
+    .big-gesture-emoji {
+      font-size: 7rem;
+      line-height: 1;
+      display: block;
+      animation: gestureEntrance 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+      filter: drop-shadow(0 0 40px rgba(26,110,255,0.4));
+    }
+    @keyframes gestureEntrance {
+      from { opacity: 0; transform: scale(0.4) rotate(-10deg); }
+      to   { opacity: 1; transform: scale(1) rotate(0deg); }
+    }
+
+    /* Ripple ring around emoji */
+    .gesture-ring {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 2px solid rgba(26,110,255,0.3);
+      animation: ringPulse 2s ease-out infinite;
+    }
+    .gesture-ring:nth-child(2) { animation-delay: 0.5s; border-color: rgba(0,200,150,0.2); }
+    .gesture-ring:nth-child(3) { animation-delay: 1s; }
+    @keyframes ringPulse {
+      0%   { transform: scale(0.7); opacity: 0.8; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+
+    .big-gesture-word {
+      font-size: 2rem;
+      font-weight: 700;
+      color: white;
+      letter-spacing: -0.02em;
+      text-shadow: 0 0 30px rgba(26,110,255,0.6);
+      animation: fadeSlideUp 0.4s 0.15s ease both;
+    }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .big-gesture-desc {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      max-width: 320px;
+      line-height: 1.5;
+      animation: fadeSlideUp 0.4s 0.25s ease both;
+    }
+
+    /* Word number badge */
+    .gesture-position-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(26,110,255,0.2);
+      border: 1px solid rgba(26,110,255,0.4);
+      color: rgba(255,255,255,0.7);
+      padding: 0.3rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      backdrop-filter: blur(8px);
+    }
+
+    /* Progress track */
+    .modal-progress-track {
+      padding: 1rem 1.5rem 0.5rem;
+      background: #0d1628;
+    }
+    .progress-words-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+    .progress-word-chip {
+      padding: 0.3rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: 1.5px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.35);
+      cursor: pointer;
+      transition: all 0.25s;
+      background: rgba(255,255,255,0.04);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .progress-word-chip.active {
+      background: rgba(26,110,255,0.25);
+      border-color: rgba(26,110,255,0.6);
+      color: white;
+      box-shadow: 0 0 12px rgba(26,110,255,0.3);
+    }
+    .progress-word-chip.done {
+      background: rgba(0,200,150,0.15);
+      border-color: rgba(0,200,150,0.4);
+      color: rgba(0,200,150,0.9);
+    }
+    .progress-word-chip .chip-emoji {
+      font-size: 1rem;
+    }
+
+    /* Thin progress bar */
+    .progress-bar-wrap {
+      height: 3px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #1A6EFF, #00C896);
+      border-radius: 3px;
+      transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Controls row */
+    .modal-controls {
+      padding: 1rem 1.5rem 1.5rem;
+      background: #0d1628;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .ctrl-btn {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.7);
+      padding: 0.6rem 1.1rem;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      white-space: nowrap;
+    }
+    .ctrl-btn:hover {
+      background: rgba(255,255,255,0.13);
+      color: white;
+    }
+    .ctrl-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+    .ctrl-btn.primary {
+      background: linear-gradient(135deg, #1A6EFF, #0F50D4);
+      border-color: transparent;
+      color: white;
+      box-shadow: 0 4px 18px rgba(26,110,255,0.35);
+    }
+    .ctrl-btn.primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(26,110,255,0.5);
+    }
+
+    /* Auto-play timer ring */
+    .autoplay-ring {
+      position: relative;
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+    .autoplay-ring svg {
+      transform: rotate(-90deg);
+      width: 36px;
+      height: 36px;
+    }
+    .autoplay-ring circle {
+      fill: none;
+      stroke-width: 3;
+    }
+    .ring-bg { stroke: rgba(255,255,255,0.08); }
+    .ring-fill {
+      stroke: #1A6EFF;
+      stroke-linecap: round;
+      stroke-dasharray: 95.5;
+      stroke-dashoffset: 95.5;
+      transition: stroke-dashoffset 0.1s linear;
+    }
+    .ring-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* "Not found" stage state */
+    .stage-not-found {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 2.5rem 2rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .stage-not-found .nf-icon {
+      font-size: 4rem;
+      opacity: 0.5;
+    }
+    .stage-not-found p {
+      font-size: 0.9rem;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .nf-badge {
+      background: rgba(255,107,53,0.15);
+      border: 1px solid rgba(255,107,53,0.3);
+      color: #FF6B35;
+      padding: 0.3rem 0.875rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* Transition animation for slide change */
+    .gesture-stage-content.exit {
+      animation: slideOutLeft 0.2s ease both;
+    }
+    .gesture-stage-content.enter {
+      animation: slideInRight 0.3s ease both;
+    }
+    @keyframes slideOutLeft {
+      to { opacity: 0; transform: translateX(-40px) scale(0.9); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(40px) scale(0.9); }
+      to   { opacity: 1; transform: translateX(0) scale(1); }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .bisindo-modal { border-radius: 20px; max-height: 95vh; }
+      .big-gesture-emoji { font-size: 5rem; }
+      .big-gesture-word { font-size: 1.5rem; }
+      .modal-stage { min-height: 220px; }
+    }
+  </style>
 </head>
 <body data-page="translate">
 
@@ -52,31 +433,24 @@
 
         <!-- Tab Bar -->
         <div class="tab-bar" role="tablist" aria-label="Pilih mode terjemahan">
-          <button class="tab-btn active" data-tab="tab-id-to-bisindo" role="tab" aria-selected="true" aria-controls="tab-id-to-bisindo">
+          <button class="tab-btn active" data-tab="tab-id-to-bisindo" role="tab" aria-selected="true">
             🔤 Indonesia → BISINDO
           </button>
-          <button class="tab-btn" data-tab="tab-bisindo-to-id" role="tab" aria-selected="false" aria-controls="tab-bisindo-to-id">
+          <button class="tab-btn" data-tab="tab-bisindo-to-id" role="tab" aria-selected="false">
             🤟 BISINDO → Indonesia
           </button>
         </div>
 
         <!-- TAB 1: Indonesia → BISINDO -->
-        <div class="tab-content active" id="tab-id-to-bisindo" role="tabpanel" aria-label="Terjemahan Indonesia ke BISINDO">
+        <div class="tab-content active" id="tab-id-to-bisindo" role="tabpanel">
           <div class="translate-card">
             <div class="translate-label" id="input-label">Masukkan teks Bahasa Indonesia</div>
 
-            <!-- Example chips -->
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.875rem;">
               <span style="font-size: 0.75rem; color: var(--text-muted); align-self: center;">Contoh:</span>
-              <button class="example-chip" data-text="Saya makan nasi" style="background: var(--primary-light); color: var(--primary); border: 1px solid rgba(26,110,255,0.2); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: var(--transition);">
-                Saya makan nasi
-              </button>
-              <button class="example-chip" data-text="Halo terima kasih" style="background: var(--primary-light); color: var(--primary); border: 1px solid rgba(26,110,255,0.2); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: var(--transition);">
-                Halo terima kasih
-              </button>
-              <button class="example-chip" data-text="Kamu mau pergi ke mana" style="background: var(--primary-light); color: var(--primary); border: 1px solid rgba(26,110,255,0.2); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: var(--transition);">
-                Kamu mau pergi ke mana
-              </button>
+              <button class="example-chip" data-text="Saya makan nasi" style="background: var(--primary-light); color: var(--primary); border: 1px solid rgba(26,110,255,0.2); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; cursor: pointer;">Saya makan nasi</button>
+              <button class="example-chip" data-text="Halo terima kasih" style="background: var(--primary-light); color: var(--primary); border: 1px solid rgba(26,110,255,0.2); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; cursor: pointer;">Halo terima kasih</button>
+              <button class="example-chip" data-text="Kamu mau pergi ke mana" style="background: var(--primary-light); color: var(--primary); border: 1px solid rgba(26,110,255,0.2); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; cursor: pointer;">Kamu mau pergi ke mana</button>
             </div>
 
             <textarea
@@ -84,194 +458,84 @@
               class="translate-textarea"
               placeholder="Ketik teks di sini... (contoh: Saya makan nasi)"
               aria-label="Input teks Bahasa Indonesia"
-              aria-describedby="input-label char-count"
               maxlength="200"
             ></textarea>
 
             <div class="translate-actions">
-              <button class="btn-translate" id="btn-do-translate" aria-label="Terjemahkan ke BISINDO">
-                🔄 Terjemahkan
+              <button class="btn-translate" id="btn-do-translate">
+                🎬 Terjemahkan & Tampilkan
               </button>
-              <button class="btn-clear" id="btn-clear" aria-label="Hapus teks">
+              <button class="btn-clear" id="btn-clear">
                 🗑️ Hapus
               </button>
-              <span class="char-count" id="char-count" aria-live="polite">0/200</span>
+              <span class="char-count" id="char-count">0/200</span>
             </div>
           </div>
 
-          <!-- Result -->
-          <div class="result-section" id="result-section" style="display:none;" aria-live="polite" aria-label="Hasil terjemahan BISINDO">
-            <div class="result-divider">
-              <span>Hasil Terjemahan BISINDO</span>
-            </div>
-
+          <!-- Result (still shown below as summary) -->
+          <div class="result-section" id="result-section" style="display:none;" aria-live="polite">
+            <div class="result-divider"><span>Hasil Terjemahan BISINDO</span></div>
             <div class="translate-card">
               <div class="translate-label">Gerakan BISINDO per Kata</div>
-              <div class="gesture-result-grid" id="gesture-result" role="list" aria-label="Daftar gerakan BISINDO">
+              <div class="gesture-result-grid" id="gesture-result" role="list">
                 <span class="result-empty">⬆️ Masukkan teks di atas dan klik Terjemahkan</span>
               </div>
-
-              <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border);">
-                <p style="font-size: 0.8rem; color: var(--text-muted);">
-                  💡 <strong>Tip:</strong> Kartu dengan label <span style="background: rgba(255,107,53,0.1); color: var(--warning); padding: 0.1rem 0.4rem; border-radius: 50px; font-size: 0.7rem; font-weight: 600;">belum ada</span> berarti kata tersebut belum tersedia di kamus kami.
-                  Coba sinonim atau cek <a href="kamus.html" style="color: var(--primary); font-weight: 600;">Kamus BISINDO</a>.
+              <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                <p style="font-size: 0.8rem; color: var(--text-muted); flex: 1;">
+                  💡 <strong>Tip:</strong> Kartu dengan label <span style="background: rgba(255,107,53,0.1); color: var(--warning); padding: 0.1rem 0.4rem; border-radius: 50px; font-size: 0.7rem; font-weight: 600;">belum ada</span> berarti kata tersebut belum tersedia. Coba <a href="kamus.html" style="color: var(--primary); font-weight: 600;">Kamus BISINDO</a>.
                 </p>
+                <button id="btn-reopen-modal" class="btn-translate" style="white-space: nowrap; padding: 0.6rem 1.25rem; font-size: 0.82rem;">
+                  🎬 Putar Lagi
+                </button>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- TAB 2: BISINDO → Indonesia -->
-        <div class="tab-content" id="tab-bisindo-to-id" role="tabpanel" aria-label="Terjemahan BISINDO ke Indonesia">
+        <!-- TAB 2: BISINDO → Indonesia (unchanged) -->
+        <div class="tab-content" id="tab-bisindo-to-id" role="tabpanel">
           <div class="translate-card">
             <div class="gesture-picker">
-              <div class="gesture-picker-title">
-                🤟 Klik gesture untuk membangun kalimat:
-              </div>
-
-              <div class="gesture-buttons-grid" id="gesture-buttons" role="group" aria-label="Pilih gesture BISINDO">
-                <!-- Salam -->
-                <button class="gesture-btn" data-word="Halo" aria-label="Gesture Halo">
-                  <span class="gesture-btn-emoji">👋</span>
-                  <div class="gesture-btn-label">Halo</div>
-                  <div class="gesture-btn-id">Salam</div>
-                </button>
-                <button class="gesture-btn" data-word="Terima kasih" aria-label="Gesture Terima kasih">
-                  <span class="gesture-btn-emoji">🙏</span>
-                  <div class="gesture-btn-label">Terima Kasih</div>
-                  <div class="gesture-btn-id">Salam</div>
-                </button>
-                <button class="gesture-btn" data-word="Maaf" aria-label="Gesture Maaf">
-                  <span class="gesture-btn-emoji">😔</span>
-                  <div class="gesture-btn-label">Maaf</div>
-                  <div class="gesture-btn-id">Salam</div>
-                </button>
-
-                <!-- Kata Ganti -->
-                <button class="gesture-btn" data-word="Saya" aria-label="Gesture Saya">
-                  <span class="gesture-btn-emoji">🫵</span>
-                  <div class="gesture-btn-label">Saya</div>
-                  <div class="gesture-btn-id">Kata Ganti</div>
-                </button>
-                <button class="gesture-btn" data-word="Kamu" aria-label="Gesture Kamu">
-                  <span class="gesture-btn-emoji">👉</span>
-                  <div class="gesture-btn-label">Kamu</div>
-                  <div class="gesture-btn-id">Kata Ganti</div>
-                </button>
-                <button class="gesture-btn" data-word="Dia" aria-label="Gesture Dia">
-                  <span class="gesture-btn-emoji">👈</span>
-                  <div class="gesture-btn-label">Dia</div>
-                  <div class="gesture-btn-id">Kata Ganti</div>
-                </button>
-
-                <!-- Aktivitas -->
-                <button class="gesture-btn" data-word="Makan" aria-label="Gesture Makan">
-                  <span class="gesture-btn-emoji">🍽️</span>
-                  <div class="gesture-btn-label">Makan</div>
-                  <div class="gesture-btn-id">Aktivitas</div>
-                </button>
-                <button class="gesture-btn" data-word="Minum" aria-label="Gesture Minum">
-                  <span class="gesture-btn-emoji">🥤</span>
-                  <div class="gesture-btn-label">Minum</div>
-                  <div class="gesture-btn-id">Aktivitas</div>
-                </button>
-                <button class="gesture-btn" data-word="Tidur" aria-label="Gesture Tidur">
-                  <span class="gesture-btn-emoji">😴</span>
-                  <div class="gesture-btn-label">Tidur</div>
-                  <div class="gesture-btn-id">Aktivitas</div>
-                </button>
-                <button class="gesture-btn" data-word="Pergi" aria-label="Gesture Pergi">
-                  <span class="gesture-btn-emoji">🏃</span>
-                  <div class="gesture-btn-label">Pergi</div>
-                  <div class="gesture-btn-id">Aktivitas</div>
-                </button>
-                <button class="gesture-btn" data-word="Datang" aria-label="Gesture Datang">
-                  <span class="gesture-btn-emoji">🤗</span>
-                  <div class="gesture-btn-label">Datang</div>
-                  <div class="gesture-btn-id">Aktivitas</div>
-                </button>
-                <button class="gesture-btn" data-word="Jalan" aria-label="Gesture Jalan">
-                  <span class="gesture-btn-emoji">🚶</span>
-                  <div class="gesture-btn-label">Jalan</div>
-                  <div class="gesture-btn-id">Aktivitas</div>
-                </button>
-
-                <!-- Respons -->
-                <button class="gesture-btn" data-word="Ya" aria-label="Gesture Ya">
-                  <span class="gesture-btn-emoji">✅</span>
-                  <div class="gesture-btn-label">Ya</div>
-                  <div class="gesture-btn-id">Respons</div>
-                </button>
-                <button class="gesture-btn" data-word="Tidak" aria-label="Gesture Tidak">
-                  <span class="gesture-btn-emoji">❌</span>
-                  <div class="gesture-btn-label">Tidak</div>
-                  <div class="gesture-btn-id">Respons</div>
-                </button>
-                <button class="gesture-btn" data-word="Tolong" aria-label="Gesture Tolong">
-                  <span class="gesture-btn-emoji">🆘</span>
-                  <div class="gesture-btn-label">Tolong</div>
-                  <div class="gesture-btn-id">Respons</div>
-                </button>
-
-                <!-- Perasaan -->
-                <button class="gesture-btn" data-word="Senang" aria-label="Gesture Senang">
-                  <span class="gesture-btn-emoji">😄</span>
-                  <div class="gesture-btn-label">Senang</div>
-                  <div class="gesture-btn-id">Perasaan</div>
-                </button>
-                <button class="gesture-btn" data-word="Sedih" aria-label="Gesture Sedih">
-                  <span class="gesture-btn-emoji">😢</span>
-                  <div class="gesture-btn-label">Sedih</div>
-                  <div class="gesture-btn-id">Perasaan</div>
-                </button>
-                <button class="gesture-btn" data-word="Lapar" aria-label="Gesture Lapar">
-                  <span class="gesture-btn-emoji">🤤</span>
-                  <div class="gesture-btn-label">Lapar</div>
-                  <div class="gesture-btn-id">Kondisi</div>
-                </button>
-                <button class="gesture-btn" data-word="Sakit" aria-label="Gesture Sakit">
-                  <span class="gesture-btn-emoji">🤒</span>
-                  <div class="gesture-btn-label">Sakit</div>
-                  <div class="gesture-btn-id">Kondisi</div>
-                </button>
-
-                <!-- Tempat -->
-                <button class="gesture-btn" data-word="Rumah" aria-label="Gesture Rumah">
-                  <span class="gesture-btn-emoji">🏠</span>
-                  <div class="gesture-btn-label">Rumah</div>
-                  <div class="gesture-btn-id">Tempat</div>
-                </button>
-                <button class="gesture-btn" data-word="Sekolah" aria-label="Gesture Sekolah">
-                  <span class="gesture-btn-emoji">🏫</span>
-                  <div class="gesture-btn-label">Sekolah</div>
-                  <div class="gesture-btn-id">Tempat</div>
-                </button>
+              <div class="gesture-picker-title">🤟 Klik gesture untuk membangun kalimat:</div>
+              <div class="gesture-buttons-grid" id="gesture-buttons" role="group">
+                <button class="gesture-btn" data-word="Halo"><span class="gesture-btn-emoji">👋</span><div class="gesture-btn-label">Halo</div><div class="gesture-btn-id">Salam</div></button>
+                <button class="gesture-btn" data-word="Terima kasih"><span class="gesture-btn-emoji">🙏</span><div class="gesture-btn-label">Terima Kasih</div><div class="gesture-btn-id">Salam</div></button>
+                <button class="gesture-btn" data-word="Maaf"><span class="gesture-btn-emoji">😔</span><div class="gesture-btn-label">Maaf</div><div class="gesture-btn-id">Salam</div></button>
+                <button class="gesture-btn" data-word="Saya"><span class="gesture-btn-emoji">🫵</span><div class="gesture-btn-label">Saya</div><div class="gesture-btn-id">Kata Ganti</div></button>
+                <button class="gesture-btn" data-word="Kamu"><span class="gesture-btn-emoji">👉</span><div class="gesture-btn-label">Kamu</div><div class="gesture-btn-id">Kata Ganti</div></button>
+                <button class="gesture-btn" data-word="Dia"><span class="gesture-btn-emoji">👈</span><div class="gesture-btn-label">Dia</div><div class="gesture-btn-id">Kata Ganti</div></button>
+                <button class="gesture-btn" data-word="Makan"><span class="gesture-btn-emoji">🍽️</span><div class="gesture-btn-label">Makan</div><div class="gesture-btn-id">Aktivitas</div></button>
+                <button class="gesture-btn" data-word="Minum"><span class="gesture-btn-emoji">🥤</span><div class="gesture-btn-label">Minum</div><div class="gesture-btn-id">Aktivitas</div></button>
+                <button class="gesture-btn" data-word="Tidur"><span class="gesture-btn-emoji">😴</span><div class="gesture-btn-label">Tidur</div><div class="gesture-btn-id">Aktivitas</div></button>
+                <button class="gesture-btn" data-word="Pergi"><span class="gesture-btn-emoji">🏃</span><div class="gesture-btn-label">Pergi</div><div class="gesture-btn-id">Aktivitas</div></button>
+                <button class="gesture-btn" data-word="Datang"><span class="gesture-btn-emoji">🤗</span><div class="gesture-btn-label">Datang</div><div class="gesture-btn-id">Aktivitas</div></button>
+                <button class="gesture-btn" data-word="Jalan"><span class="gesture-btn-emoji">🚶</span><div class="gesture-btn-label">Jalan</div><div class="gesture-btn-id">Aktivitas</div></button>
+                <button class="gesture-btn" data-word="Ya"><span class="gesture-btn-emoji">✅</span><div class="gesture-btn-label">Ya</div><div class="gesture-btn-id">Respons</div></button>
+                <button class="gesture-btn" data-word="Tidak"><span class="gesture-btn-emoji">❌</span><div class="gesture-btn-label">Tidak</div><div class="gesture-btn-id">Respons</div></button>
+                <button class="gesture-btn" data-word="Tolong"><span class="gesture-btn-emoji">🆘</span><div class="gesture-btn-label">Tolong</div><div class="gesture-btn-id">Respons</div></button>
+                <button class="gesture-btn" data-word="Senang"><span class="gesture-btn-emoji">😄</span><div class="gesture-btn-label">Senang</div><div class="gesture-btn-id">Perasaan</div></button>
+                <button class="gesture-btn" data-word="Sedih"><span class="gesture-btn-emoji">😢</span><div class="gesture-btn-label">Sedih</div><div class="gesture-btn-id">Perasaan</div></button>
+                <button class="gesture-btn" data-word="Lapar"><span class="gesture-btn-emoji">🤤</span><div class="gesture-btn-label">Lapar</div><div class="gesture-btn-id">Kondisi</div></button>
+                <button class="gesture-btn" data-word="Sakit"><span class="gesture-btn-emoji">🤒</span><div class="gesture-btn-label">Sakit</div><div class="gesture-btn-id">Kondisi</div></button>
+                <button class="gesture-btn" data-word="Rumah"><span class="gesture-btn-emoji">🏠</span><div class="gesture-btn-label">Rumah</div><div class="gesture-btn-id">Tempat</div></button>
+                <button class="gesture-btn" data-word="Sekolah"><span class="gesture-btn-emoji">🏫</span><div class="gesture-btn-label">Sekolah</div><div class="gesture-btn-id">Tempat</div></button>
               </div>
             </div>
-
-            <!-- Sentence Builder -->
             <div class="translate-label" style="margin-bottom: 0.75rem;">Kalimat yang Dibangun:</div>
-            <div class="sentence-builder" id="sentence-builder" aria-live="polite" aria-label="Kalimat yang sedang dibangun">
+            <div class="sentence-builder" id="sentence-builder" aria-live="polite">
               <span class="sentence-placeholder">Klik gesture di atas untuk membangun kalimat...</span>
             </div>
-
             <div style="display: flex; gap: 0.75rem; margin-top: 0.75rem;">
-              <button class="btn-clear" id="btn-clear-sentence" aria-label="Hapus semua gesture yang dipilih">
-                🗑️ Hapus Semua
-              </button>
+              <button class="btn-clear" id="btn-clear-sentence">🗑️ Hapus Semua</button>
             </div>
-
-            <!-- Output -->
-            <div class="translation-output" id="translation-output" style="display:none; margin-top: 1.25rem;" aria-live="polite">
+            <div class="translation-output" id="translation-output" style="display:none; margin-top: 1.25rem;">
               <div class="output-label">Terjemahan Bahasa Indonesia:</div>
               <div class="output-text" id="output-text"></div>
             </div>
           </div>
-
           <div style="margin-top: 1.5rem; background: var(--surface); border-radius: var(--radius); padding: 1.25rem; border: 1px solid var(--border);">
             <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
-              💡 <strong>Cara pakai:</strong> Klik tombol-tombol gesture di atas secara berurutan untuk membangun kalimat BISINDO.
-              Klik tanda ✕ pada kata untuk menghapusnya satu per satu.
+              💡 <strong>Cara pakai:</strong> Klik tombol gesture secara berurutan. Klik ✕ untuk menghapus satu kata.
             </p>
           </div>
         </div>
@@ -280,6 +544,60 @@
     </section>
   </main>
 
+  <!-- ================================================
+       BISINDO VIDEO MODAL
+  ================================================= -->
+  <div class="bisindo-modal-overlay" id="bisindo-modal-overlay" role="dialog" aria-modal="true" aria-label="Animasi gerakan BISINDO">
+    <div class="bisindo-modal" id="bisindo-modal">
+
+      <!-- Top chrome bar -->
+      <div class="modal-chrome">
+        <div class="chrome-dots">
+          <div class="chrome-dot"></div>
+          <div class="chrome-dot"></div>
+          <div class="chrome-dot"></div>
+        </div>
+        <span class="chrome-title" id="modal-chrome-title">SignBridge+ · Gerakan BISINDO</span>
+        <button class="chrome-close-btn" id="modal-close-btn" aria-label="Tutup">✕</button>
+      </div>
+
+      <!-- Stage (main display area) -->
+      <div class="modal-stage" id="modal-stage">
+        <div class="gesture-stage-content" id="stage-content">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Word chips progress track -->
+      <div class="modal-progress-track">
+        <div class="progress-words-row" id="progress-chips">
+          <!-- Chips populated by JS -->
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="progress-bar"></div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="modal-controls">
+        <button class="ctrl-btn" id="ctrl-prev" aria-label="Kata sebelumnya">◀ Prev</button>
+        <button class="ctrl-btn primary" id="ctrl-play-pause" aria-label="Play/Pause otomatis">⏸ Pause</button>
+        <button class="ctrl-btn" id="ctrl-next" aria-label="Kata selanjutnya">Next ▶</button>
+        <button class="ctrl-btn" id="ctrl-restart" aria-label="Ulangi dari awal">↺ Ulangi</button>
+
+        <!-- Auto-play timer ring -->
+        <div class="autoplay-ring" id="autoplay-ring" title="Ganti otomatis">
+          <svg viewBox="0 0 34 34">
+            <circle class="ring-bg" cx="17" cy="17" r="15.2"/>
+            <circle class="ring-fill" id="ring-fill" cx="17" cy="17" r="15.2"/>
+          </svg>
+          <div class="ring-label" id="ring-label">3</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <footer role="contentinfo">
     <div class="footer-container">
       <div class="footer-top">
@@ -287,21 +605,8 @@
           <div class="footer-brand"><div class="brand-icon">🤟</div>SignBridge<span style="color:var(--accent);">+</span></div>
           <p class="footer-desc">Jembatan komunikasi digital untuk teman tuli dan masyarakat umum.</p>
         </div>
-        <div class="footer-col">
-          <h4>Navigasi</h4>
-          <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="kamus.html">Kamus</a></li>
-            <li><a href="edukasi.html">Edukasi</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Info</h4>
-          <ul>
-            <li><a href="about.html">Tentang</a></li>
-            <li><a href="contact.html">Kontak</a></li>
-          </ul>
-        </div>
+        <div class="footer-col"><h4>Navigasi</h4><ul><li><a href="index.html">Beranda</a></li><li><a href="kamus.html">Kamus</a></li><li><a href="edukasi.html">Edukasi</a></li></ul></div>
+        <div class="footer-col"><h4>Info</h4><ul><li><a href="about.html">Tentang</a></li><li><a href="contact.html">Kontak</a></li></ul></div>
       </div>
       <div class="footer-bottom">
         <span>© 2024 SignBridge+ — Dibuat dengan <span class="footer-heart">❤️</span> untuk inklusi</span>
@@ -311,5 +616,284 @@
   </footer>
 
   <script src="js/script.js"></script>
+
+  <script>
+  // ================================================
+  //  BISINDO VIDEO MODAL ENGINE
+  // ================================================
+  (function () {
+    // ---------- State ----------
+    let modalWords = [];      // [{word, emoji, desc, found}]
+    let currentIdx = 0;
+    let isPlaying = true;
+    let autoTimer = null;
+    let ringTimer = null;
+    const AUTO_DELAY = 3000;  // ms per word
+
+    // ---------- Elements ----------
+    const overlay     = document.getElementById('bisindo-modal-overlay');
+    const closeBtn    = document.getElementById('modal-close-btn');
+    const stageEl     = document.getElementById('stage-content');
+    const chipsEl     = document.getElementById('progress-chips');
+    const progressBar = document.getElementById('progress-bar');
+    const chromeTitle = document.getElementById('modal-chrome-title');
+    const btnPrev     = document.getElementById('ctrl-prev');
+    const btnNext     = document.getElementById('ctrl-next');
+    const btnPlay     = document.getElementById('ctrl-play-pause');
+    const btnRestart  = document.getElementById('ctrl-restart');
+    const ringFill    = document.getElementById('ring-fill');
+    const ringLabel   = document.getElementById('ring-label');
+    const ringWrap    = document.getElementById('autoplay-ring');
+
+    // ---------- Open modal ----------
+    window.openBisindoModal = function (words) {
+      modalWords = words;
+      currentIdx = 0;
+      isPlaying = true;
+
+      buildChips();
+      renderSlide(0, 'enter');
+      updateProgress();
+      updateControls();
+
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+
+      startAutoPlay();
+    };
+
+    // ---------- Close ----------
+    function closeModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      stopAutoPlay();
+    }
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (!overlay.classList.contains('open')) return;
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowRight') goNext();
+      if (e.key === 'ArrowLeft') goPrev();
+      if (e.key === ' ') { e.preventDefault(); togglePlay(); }
+    });
+
+    // ---------- Build chips ----------
+    function buildChips() {
+      chipsEl.innerHTML = '';
+      modalWords.forEach((w, i) => {
+        const chip = document.createElement('button');
+        chip.className = 'progress-word-chip' + (i === 0 ? ' active' : '');
+        chip.innerHTML = `<span class="chip-emoji">${w.emoji || '❓'}</span> ${w.word}`;
+        chip.addEventListener('click', () => {
+          stopAutoPlay();
+          goTo(i);
+          if (isPlaying) startAutoPlay();
+        });
+        chipsEl.appendChild(chip);
+      });
+    }
+
+    // ---------- Render slide ----------
+    function renderSlide(idx, direction = 'enter') {
+      const w = modalWords[idx];
+      if (!w) return;
+
+      // Animate out
+      stageEl.classList.remove('enter');
+      stageEl.classList.add('exit');
+
+      setTimeout(() => {
+        stageEl.classList.remove('exit');
+
+        if (w.found) {
+          stageEl.innerHTML = `
+            <div class="gesture-ring"></div>
+            <div class="gesture-ring"></div>
+            <span class="big-gesture-emoji">${w.emoji}</span>
+            <div class="big-gesture-word">${w.word}</div>
+            <div class="big-gesture-desc">${w.desc || ''}</div>
+            <div class="gesture-position-badge">Kata ${idx + 1} / ${modalWords.length}</div>
+          `;
+        } else {
+          stageEl.innerHTML = `
+            <div class="stage-not-found">
+              <span class="nf-icon">❓</span>
+              <div class="big-gesture-word" style="color:rgba(255,255,255,0.5)">${w.word}</div>
+              <span class="nf-badge">Belum ada di kamus</span>
+              <p>Kata ini belum tersedia.<br>Coba sinonim atau cek Kamus BISINDO.</p>
+              <div class="gesture-position-badge" style="position:static;margin-top:0.5rem;">Kata ${idx + 1} / ${modalWords.length}</div>
+            </div>
+          `;
+        }
+
+        stageEl.classList.add('enter');
+        chromeTitle.textContent = `SignBridge+ · ${w.word} (${idx + 1}/${modalWords.length})`;
+      }, 180);
+
+      // Update chips
+      document.querySelectorAll('.progress-word-chip').forEach((chip, i) => {
+        chip.classList.remove('active', 'done');
+        if (i < idx) chip.classList.add('done');
+        if (i === idx) chip.classList.add('active');
+      });
+    }
+
+    // ---------- Progress bar ----------
+    function updateProgress() {
+      const pct = modalWords.length <= 1 ? 100 : (currentIdx / (modalWords.length - 1)) * 100;
+      progressBar.style.width = pct + '%';
+    }
+
+    // ---------- Controls ----------
+    function updateControls() {
+      btnPrev.disabled = currentIdx === 0;
+      btnNext.disabled = currentIdx === modalWords.length - 1;
+    }
+
+    function goTo(idx) {
+      currentIdx = Math.max(0, Math.min(idx, modalWords.length - 1));
+      renderSlide(currentIdx);
+      updateProgress();
+      updateControls();
+    }
+    function goNext() {
+      if (currentIdx < modalWords.length - 1) {
+        goTo(currentIdx + 1);
+        if (isPlaying) { stopRing(); startRing(); }
+      } else {
+        // reached end — stop
+        if (isPlaying) {
+          isPlaying = false;
+          btnPlay.textContent = '▶ Play';
+          stopAutoPlay();
+        }
+      }
+    }
+    function goPrev() {
+      if (currentIdx > 0) {
+        goTo(currentIdx - 1);
+        if (isPlaying) { stopRing(); startRing(); }
+      }
+    }
+
+    btnNext.addEventListener('click', () => { stopAutoPlay(); goNext(); if (isPlaying) startAutoPlay(); });
+    btnPrev.addEventListener('click', () => { stopAutoPlay(); goPrev(); if (isPlaying) startAutoPlay(); });
+    btnRestart.addEventListener('click', () => {
+      stopAutoPlay();
+      goTo(0);
+      isPlaying = true;
+      btnPlay.textContent = '⏸ Pause';
+      startAutoPlay();
+    });
+
+    function togglePlay() {
+      isPlaying = !isPlaying;
+      btnPlay.textContent = isPlaying ? '⏸ Pause' : '▶ Play';
+      if (isPlaying) {
+        startAutoPlay();
+      } else {
+        stopAutoPlay();
+      }
+    }
+    btnPlay.addEventListener('click', togglePlay);
+
+    // ---------- Auto-play with ring countdown ----------
+    function startAutoPlay() {
+      stopAutoPlay();
+      startRing();
+      autoTimer = setTimeout(() => {
+        goNext();
+        if (isPlaying && currentIdx < modalWords.length - 1) startAutoPlay();
+      }, AUTO_DELAY);
+    }
+
+    function stopAutoPlay() {
+      clearTimeout(autoTimer);
+      stopRing();
+    }
+
+    // Ring countdown animation
+    const CIRCUMFERENCE = 95.5;
+    let ringStart = null;
+    let ringFrame = null;
+
+    function startRing() {
+      stopRing();
+      ringWrap.style.display = 'flex';
+      ringStart = performance.now();
+      function tick(now) {
+        const elapsed = now - ringStart;
+        const frac = Math.min(elapsed / AUTO_DELAY, 1);
+        const offset = CIRCUMFERENCE * (1 - frac);
+        ringFill.style.strokeDashoffset = offset;
+        const secs = Math.ceil((AUTO_DELAY - elapsed) / 1000);
+        ringLabel.textContent = Math.max(secs, 0);
+        if (frac < 1) {
+          ringFrame = requestAnimationFrame(tick);
+        }
+      }
+      ringFrame = requestAnimationFrame(tick);
+    }
+
+    function stopRing() {
+      cancelAnimationFrame(ringFrame);
+      ringFill.style.strokeDashoffset = CIRCUMFERENCE;
+      ringLabel.textContent = '';
+    }
+
+    // ---------- Wire to existing translate button ----------
+    // We hook after script.js loads, override doTranslate output
+    document.addEventListener('DOMContentLoaded', () => {
+      // Patch the translate button
+      const btn = document.getElementById('btn-do-translate');
+      const reopenBtn = document.getElementById('btn-reopen-modal');
+
+      // Store translated words for reopen
+      let lastTranslated = [];
+
+      btn?.addEventListener('click', (e) => {
+        // Let script.js handle its own click first (char count etc)
+        // We intercept after a small tick to let dictionary load
+        setTimeout(() => {
+          const textarea = document.getElementById('input-text');
+          if (!textarea || !textarea.value.trim()) return;
+
+          // Build word list from dictionary
+          const text = textarea.value.trim();
+          const rawWords = text.toLowerCase()
+            .replace(/[^a-zA-Z\s]/g, '')
+            .split(/\s+/)
+            .filter(w => w.length > 0);
+
+          if (rawWords.length === 0) return;
+
+          // Access dictionary (loaded by script.js)
+          const dict = window.__bisindoDict || {};
+
+          lastTranslated = rawWords.map(word => {
+            const entry = dict[word];
+            return {
+              word: word.charAt(0).toUpperCase() + word.slice(1),
+              emoji: entry ? entry.emoji : null,
+              desc: entry ? entry.deskripsi_gerakan || entry.arti : null,
+              found: !!entry
+            };
+          });
+
+          openBisindoModal(lastTranslated);
+        }, 50);
+      }, true); // capture phase so we run alongside existing handler
+
+      reopenBtn?.addEventListener('click', () => {
+        if (lastTranslated.length > 0) openBisindoModal(lastTranslated);
+      });
+    });
+
+  })();
+  </script>
+
 </body>
 </html>
