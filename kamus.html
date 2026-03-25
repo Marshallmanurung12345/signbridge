@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kamus BISINDO — SignBridge+</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤟</text></svg>">
+</head>
+<body data-page="kamus">
+
+  <nav class="navbar" role="navigation" aria-label="Menu utama">
+    <a href="index.html" class="nav-brand">
+      <div class="brand-icon" aria-hidden="true">🤟</div>
+      SignBridge<span class="brand-plus">+</span>
+    </a>
+    <ul class="nav-menu" role="list">
+      <li><a href="index.html" class="nav-link">Beranda</a></li>
+      <li><a href="translate.html" class="nav-link">Translate</a></li>
+      <li><a href="kamus.html" class="nav-link active" aria-current="page">Kamus</a></li>
+      <li><a href="edukasi.html" class="nav-link">Edukasi</a></li>
+      <li><a href="about.html" class="nav-link">Tentang</a></li>
+      <li><a href="contact.html" class="nav-link">Kontak</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="accessibility-bar">
+        <button class="acc-btn" id="btn-contrast" title="Kontras Tinggi" aria-label="Toggle kontras tinggi">🎨</button>
+        <button class="acc-btn" id="btn-large-text" title="Perbesar Teks" aria-label="Toggle ukuran teks">🔍</button>
+      </div>
+      <a href="translate.html" class="btn-nav-cta">Mulai Translate</a>
+    </div>
+    <button class="hamburger" aria-label="Buka menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  <div class="mobile-menu">
+    <a href="index.html" class="nav-link">🏠 Beranda</a>
+    <a href="translate.html" class="nav-link">🔄 Translate</a>
+    <a href="kamus.html" class="nav-link active">📚 Kamus</a>
+    <a href="edukasi.html" class="nav-link">🎓 Edukasi</a>
+    <a href="about.html" class="nav-link">ℹ️ Tentang</a>
+    <a href="contact.html" class="nav-link">📞 Kontak</a>
+  </div>
+
+  <main>
+    <header class="page-header">
+      <h1>📚 Kamus BISINDO</h1>
+      <p>Jelajahi koleksi kata-kata BISINDO lengkap dengan arti dan visualisasi gerakan</p>
+    </header>
+
+    <section class="kamus-section" aria-labelledby="kamus-heading">
+      <div class="kamus-container">
+
+        <!-- Search -->
+        <div class="search-bar-wrapper" role="search">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input
+            type="search"
+            id="search-kamus"
+            class="search-input"
+            placeholder="Cari kata... (contoh: makan, halo, tidur)"
+            aria-label="Cari kata dalam kamus BISINDO"
+            autocomplete="off"
+          >
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="kamus-filter-tabs" role="group" aria-label="Filter kategori kata">
+          <button class="filter-tab active" data-category="semua">Semua</button>
+          <button class="filter-tab" data-category="Kata Ganti">Kata Ganti</button>
+          <button class="filter-tab" data-category="Aktivitas">Aktivitas</button>
+          <button class="filter-tab" data-category="Salam">Salam</button>
+          <button class="filter-tab" data-category="Respons">Respons</button>
+          <button class="filter-tab" data-category="Perasaan">Perasaan</button>
+          <button class="filter-tab" data-category="Kondisi">Kondisi</button>
+          <button class="filter-tab" data-category="Tempat">Tempat</button>
+          <button class="filter-tab" data-category="Makanan">Makanan</button>
+          <button class="filter-tab" data-category="Kata Sifat">Kata Sifat</button>
+          <button class="filter-tab" data-category="Benda">Benda</button>
+        </div>
+
+        <!-- Results count -->
+        <div id="results-count" style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;" aria-live="polite"></div>
+
+        <!-- Grid -->
+        <div class="kamus-grid" id="kamus-grid" role="list" aria-label="Daftar kata BISINDO">
+          <!-- Rendered by JS -->
+          <div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-muted);">
+            <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">⏳</span>
+            Memuat kamus...
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Kamus Detail Modal -->
+  <div class="modal-overlay" id="kamus-modal" role="dialog" aria-modal="true" aria-labelledby="modal-word" aria-hidden="true">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div>
+          <div style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.25rem;" id="modal-category-label">Kategori</div>
+          <h2 class="modal-word" id="modal-word" style="font-family: var(--font-display); font-size: 1.75rem; color: var(--text);"></h2>
+        </div>
+        <button class="modal-close" id="modal-close" aria-label="Tutup modal">✕</button>
+      </div>
+
+      <span class="modal-gesture" id="modal-emoji" aria-hidden="true"></span>
+
+      <div style="margin-bottom: 1.25rem;">
+        <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 0.375rem;">Arti</div>
+        <p class="modal-arti" id="modal-arti"></p>
+      </div>
+
+      <div style="margin-bottom: 1.25rem;">
+        <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 0.375rem;">Contoh Kalimat</div>
+        <p style="font-size: 0.9rem; color: var(--text); font-style: italic; background: var(--surface2); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border-left: 3px solid var(--primary);" id="modal-contoh"></p>
+      </div>
+
+      <div>
+        <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-bottom: 0.375rem;">Deskripsi Gerakan</div>
+        <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.5;" id="modal-gerakan"></p>
+      </div>
+
+      <div class="modal-meta" style="margin-top: 1.25rem;">
+        <span class="meta-badge" id="modal-category">—</span>
+        <a href="translate.html" style="background: var(--primary); color: white; padding: 0.3rem 0.875rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem;">
+          🔄 Translate
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand"><div class="brand-icon">🤟</div>SignBridge<span style="color:var(--accent);">+</span></div>
+          <p class="footer-desc">Jembatan komunikasi digital untuk teman tuli dan masyarakat umum.</p>
+        </div>
+        <div class="footer-col"><h4>Navigasi</h4><ul><li><a href="index.html">Beranda</a></li><li><a href="translate.html">Translate</a></li><li><a href="edukasi.html">Edukasi</a></li></ul></div>
+        <div class="footer-col"><h4>Info</h4><ul><li><a href="about.html">Tentang</a></li><li><a href="contact.html">Kontak</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 SignBridge+ — Dibuat dengan <span class="footer-heart">❤️</span> untuk inklusi</span>
+        <span>🤟 BISINDO untuk Semua</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Override renderKamus to update count
+    const origInitKamus = window.initKamusPage;
+    document.addEventListener('DOMContentLoaded', () => {
+      // Patch results count display
+      const observer = new MutationObserver(() => {
+        const grid = document.getElementById('kamus-grid');
+        const count = document.getElementById('results-count');
+        if (grid && count) {
+          const cards = grid.querySelectorAll('.kamus-card');
+          count.textContent = cards.length > 0 ? `Menampilkan ${cards.length} kata` : '';
+        }
+      });
+      const grid = document.getElementById('kamus-grid');
+      if (grid) observer.observe(grid, { childList: true });
+    });
+  </script>
+</body>
+</html>

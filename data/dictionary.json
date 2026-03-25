@@ -1,0 +1,212 @@
+{
+  "saya": {
+    "arti": "Kata ganti orang pertama tunggal, merujuk pada diri sendiri",
+    "emoji": "🫵",
+    "kategori": "Kata Ganti",
+    "contoh": "Saya pergi ke sekolah",
+    "deskripsi_gerakan": "Tunjuk dada dengan jari telunjuk"
+  },
+  "kamu": {
+    "arti": "Kata ganti orang kedua, merujuk pada lawan bicara",
+    "emoji": "👉",
+    "kategori": "Kata Ganti",
+    "contoh": "Kamu baik sekali",
+    "deskripsi_gerakan": "Tunjuk ke arah lawan bicara"
+  },
+  "dia": {
+    "arti": "Kata ganti orang ketiga, merujuk pada orang lain",
+    "emoji": "👈",
+    "kategori": "Kata Ganti",
+    "contoh": "Dia pergi ke pasar",
+    "deskripsi_gerakan": "Tunjuk ke arah samping"
+  },
+  "kami": {
+    "arti": "Kata ganti orang pertama jamak (tidak termasuk lawan bicara)",
+    "emoji": "🤲",
+    "kategori": "Kata Ganti",
+    "contoh": "Kami pergi bersama",
+    "deskripsi_gerakan": "Gerakan melingkari diri sendiri dan orang di sekitar"
+  },
+  "mereka": {
+    "arti": "Kata ganti orang ketiga jamak",
+    "emoji": "👥",
+    "kategori": "Kata Ganti",
+    "contoh": "Mereka sedang bermain",
+    "deskripsi_gerakan": "Tunjuk ke beberapa arah"
+  },
+  "makan": {
+    "arti": "Memasukkan makanan ke dalam mulut untuk dicerna",
+    "emoji": "🍽️",
+    "kategori": "Aktivitas",
+    "contoh": "Saya makan nasi",
+    "deskripsi_gerakan": "Buka-tutup tangan di depan mulut"
+  },
+  "minum": {
+    "arti": "Memasukkan cairan ke dalam mulut",
+    "emoji": "🥤",
+    "kategori": "Aktivitas",
+    "contoh": "Adik minum susu",
+    "deskripsi_gerakan": "Angkat tangan seperti memegang gelas ke arah mulut"
+  },
+  "tidur": {
+    "arti": "Keadaan istirahat dengan mata tertutup, tidak sadar",
+    "emoji": "😴",
+    "kategori": "Aktivitas",
+    "contoh": "Saya ingin tidur",
+    "deskripsi_gerakan": "Miringkan kepala sambil tempelkan telapak tangan di pipi"
+  },
+  "bangun": {
+    "arti": "Berdiri atau bangkit dari posisi tidur atau duduk",
+    "emoji": "🌅",
+    "kategori": "Aktivitas",
+    "contoh": "Saya bangun pagi",
+    "deskripsi_gerakan": "Angkat tangan dari bawah ke atas"
+  },
+  "jalan": {
+    "arti": "Bergerak dengan melangkahkan kaki",
+    "emoji": "🚶",
+    "kategori": "Aktivitas",
+    "contoh": "Kita jalan bersama",
+    "deskripsi_gerakan": "Gerakan dua jari seperti berjalan"
+  },
+  "halo": {
+    "arti": "Salam pembuka saat bertemu atau menyapa seseorang",
+    "emoji": "👋",
+    "kategori": "Salam",
+    "contoh": "Halo, apa kabar?",
+    "deskripsi_gerakan": "Lambaikan tangan ke depan"
+  },
+  "selamat": {
+    "arti": "Ucapan baik yang diberikan untuk momen tertentu",
+    "emoji": "🎉",
+    "kategori": "Salam",
+    "contoh": "Selamat pagi",
+    "deskripsi_gerakan": "Tepuk tangan dan angkat ke atas"
+  },
+  "terima kasih": {
+    "arti": "Ungkapan rasa syukur atau penghargaan kepada orang lain",
+    "emoji": "🙏",
+    "kategori": "Salam",
+    "contoh": "Terima kasih atas bantuannya",
+    "deskripsi_gerakan": "Satukan kedua telapak tangan di depan dada"
+  },
+  "maaf": {
+    "arti": "Permohonan ampun atau penyesalan atas kesalahan",
+    "emoji": "😔",
+    "kategori": "Salam",
+    "contoh": "Maaf, saya terlambat",
+    "deskripsi_gerakan": "Kepalan tangan berputar di dada"
+  },
+  "ya": {
+    "arti": "Kata yang menyatakan persetujuan atau konfirmasi",
+    "emoji": "✅",
+    "kategori": "Respons",
+    "contoh": "Ya, saya setuju",
+    "deskripsi_gerakan": "Anggukkan kepala atau jari telunjuk mengangguk"
+  },
+  "tidak": {
+    "arti": "Kata yang menyatakan penolakan atau negasi",
+    "emoji": "❌",
+    "kategori": "Respons",
+    "contoh": "Tidak, saya tidak mau",
+    "deskripsi_gerakan": "Gelengkan kepala atau gerakkan jari ke kanan-kiri"
+  },
+  "tolong": {
+    "arti": "Permohonan bantuan kepada orang lain",
+    "emoji": "🆘",
+    "kategori": "Respons",
+    "contoh": "Tolong bantu saya",
+    "deskripsi_gerakan": "Angkat tangan dan gerakkan ke arah orang lain"
+  },
+  "rumah": {
+    "arti": "Tempat tinggal atau hunian seseorang",
+    "emoji": "🏠",
+    "kategori": "Tempat",
+    "contoh": "Saya di rumah",
+    "deskripsi_gerakan": "Bentuk atap rumah dengan kedua tangan"
+  },
+  "sekolah": {
+    "arti": "Lembaga pendidikan tempat belajar mengajar",
+    "emoji": "🏫",
+    "kategori": "Tempat",
+    "contoh": "Saya ke sekolah",
+    "deskripsi_gerakan": "Bentuk buku terbuka dengan kedua tangan"
+  },
+  "pasar": {
+    "arti": "Tempat jual beli barang dan kebutuhan sehari-hari",
+    "emoji": "🛒",
+    "kategori": "Tempat",
+    "contoh": "Ibu pergi ke pasar",
+    "deskripsi_gerakan": "Gerakan jual beli dengan tangan"
+  },
+  "sakit": {
+    "arti": "Kondisi tubuh yang tidak sehat atau merasakan nyeri",
+    "emoji": "🤒",
+    "kategori": "Kondisi",
+    "contoh": "Saya sakit kepala",
+    "deskripsi_gerakan": "Tunjuk bagian tubuh yang sakit dengan ekspresi wajah meringis"
+  },
+  "senang": {
+    "arti": "Perasaan bahagia, gembira, atau puas",
+    "emoji": "😄",
+    "kategori": "Perasaan",
+    "contoh": "Saya sangat senang",
+    "deskripsi_gerakan": "Kedua tangan bergerak ke atas dengan ekspresi senyum lebar"
+  },
+  "sedih": {
+    "arti": "Perasaan tidak bahagia, duka, atau kecewa",
+    "emoji": "😢",
+    "kategori": "Perasaan",
+    "contoh": "Saya sedih sekali",
+    "deskripsi_gerakan": "Tarik sudut bibir ke bawah dan gerakkan tangan ke bawah"
+  },
+  "lapar": {
+    "arti": "Kondisi perut kosong yang memerlukan makanan",
+    "emoji": "🤤",
+    "kategori": "Kondisi",
+    "contoh": "Saya lapar sekali",
+    "deskripsi_gerakan": "Usap perut dengan telapak tangan melingkar"
+  },
+  "air": {
+    "arti": "Cairan bening yang diperlukan untuk kehidupan",
+    "emoji": "💧",
+    "kategori": "Benda",
+    "contoh": "Tolong ambilkan air",
+    "deskripsi_gerakan": "Gerakan jari-jari turun seperti air menetes"
+  },
+  "nasi": {
+    "arti": "Makanan pokok yang terbuat dari beras yang dimasak",
+    "emoji": "🍚",
+    "kategori": "Makanan",
+    "contoh": "Saya makan nasi",
+    "deskripsi_gerakan": "Gerakan tangan menggulung"
+  },
+  "pergi": {
+    "arti": "Berangkat atau meninggalkan suatu tempat",
+    "emoji": "🏃",
+    "kategori": "Aktivitas",
+    "contoh": "Saya pergi ke sekolah",
+    "deskripsi_gerakan": "Arahkan tangan ke depan"
+  },
+  "datang": {
+    "arti": "Tiba atau sampai di suatu tempat",
+    "emoji": "🤗",
+    "kategori": "Aktivitas",
+    "contoh": "Kamu datang dari mana?",
+    "deskripsi_gerakan": "Tarik tangan ke arah tubuh"
+  },
+  "besar": {
+    "arti": "Ukuran yang melebihi rata-rata atau luas",
+    "emoji": "🐘",
+    "kategori": "Kata Sifat",
+    "contoh": "Gajah itu besar",
+    "deskripsi_gerakan": "Rentangkan kedua tangan lebar-lebar"
+  },
+  "kecil": {
+    "arti": "Ukuran yang kurang dari rata-rata atau sempit",
+    "emoji": "🐜",
+    "kategori": "Kata Sifat",
+    "contoh": "Semut itu kecil",
+    "deskripsi_gerakan": "Dekatkan ibu jari dan telunjuk hampir menyentuh"
+  }
+}

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Translate — SignBridge+</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤟</text></svg>">
+</head>
+<body data-page="translate">
+
+  <nav class="navbar" role="navigation" aria-label="Menu utama">
+    <a href="index.html" class="nav-brand">
+      <div class="brand-icon" aria-hidden="true">🤟</div>
+      SignBridge<span class="brand-plus">+</span>
+    </a>
+    <ul class="nav-menu" role="list">
+      <li><a href="index.html" class="nav-link">Beranda</a></li>
+      <li><a href="translate.html" class="nav-link active" aria-current="page">Translate</a></li>
+      <li><a href="kamus.html" class="nav-link">Kamus</a></li>
+      <li><a href="edukasi.html" class="nav-link">Edukasi</a></li>
+      <li><a href="about.html" class="nav-link">Tentang</a></li>
+      <li><a href="contact.html" class="nav-link">Kontak</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="accessibility-bar">
+        <button class="acc-btn" id="btn-contrast" title="Kontras Tinggi" aria-label="Toggle kontras tinggi">🎨</button>
+        <button class="acc-btn" id="btn-large-text" title="Perbesar Teks" aria-label="Toggle ukuran teks">🔍</button>
+      </div>
+      <a href="kamus.html" class="btn-nav-cta">Lihat Kamus</a>
+    </div>
+    <button class="hamburger" aria-label="Buka menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  <div class="mobile-menu">
+    <a href="index.html" class="nav-link">🏠 Beranda</a>
+    <a href="translate.html" class="nav-link active">🔄 Translate</a>
+    <a href="kamus.html" class="nav-link">📚 Kamus</a>
+    <a href="edukasi.html" class="nav-link">🎓 Edukasi</a>
+    <a href="about.html" class="nav-link">ℹ️ Tentang</a>
+    <a href="contact.html" class="nav-link">📞 Kontak</a>
+  </div>
+
+  <main>
+    <header class="page-header" role="banner">
+      <h1>🔄 Penerjemah BISINDO</h1>
+      <p>Terjemahkan Bahasa Indonesia ke BISINDO atau sebaliknya dengan mudah</p>
+    </header>
+
+    <section class="translate-section" aria-label="Area terjemahan">
+      <div class="translate-container">
+
+        <!-- Tab Bar -->
+        <div class="tab-bar" role="tablist" aria-label="Pilih mode terjemahan">
+          <button class="tab-btn active" data-tab="tab-id-to-bisindo" role="tab" aria-selected="true" aria-controls="tab-id-to-bisindo">
+            🔤 Indonesia → BISINDO
+          </button>
+          <button class="tab-btn" data-tab="tab-bisindo-to-id" role="tab" aria-selected="false" aria-controls="tab-bisindo-to-id">
+            🤟 BISINDO → Indonesia
+          </button>
+        </div>
+
+        <!-- TAB 1: Indonesia → BISINDO -->
+        <div class="tab-content active" id="tab-id-to-bisindo" role="tabpanel" aria-label="Terjemahan Indonesia ke BISINDO">
+          <div class="translate-card">
+            <div class="translate-label" id="input-label">Masukkan teks Bahasa Indonesia</div>
+
+            <!-- Example chips -->
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.875rem;">
+              <span style="font-size: 0.75rem; color: var(--text-muted); align-self: center;">Contoh:</span>
+              <button class="example-chip" data-text="Saya makan nasi" style="background: var(--primary-light); color: var(--primary); border: 1px solid rgba(26,110,255,0.2); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: var(--transition);">
+                Saya makan nasi
+              </button>
+              <button class="example-chip" data-text="Halo terima kasih" style="background: var(--primary-light); color: var(--primary); border: 1px solid rgba(26,110,255,0.2); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: var(--transition);">
+                Halo terima kasih
+              </button>
+              <button class="example-chip" data-text="Kamu mau pergi ke mana" style="background: var(--primary-light); color: var(--primary); border: 1px solid rgba(26,110,255,0.2); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: var(--transition);">
+                Kamu mau pergi ke mana
+              </button>
+            </div>
+
+            <textarea
+              id="input-text"
+              class="translate-textarea"
+              placeholder="Ketik teks di sini... (contoh: Saya makan nasi)"
+              aria-label="Input teks Bahasa Indonesia"
+              aria-describedby="input-label char-count"
+              maxlength="200"
+            ></textarea>
+
+            <div class="translate-actions">
+              <button class="btn-translate" id="btn-do-translate" aria-label="Terjemahkan ke BISINDO">
+                🔄 Terjemahkan
+              </button>
+              <button class="btn-clear" id="btn-clear" aria-label="Hapus teks">
+                🗑️ Hapus
+              </button>
+              <span class="char-count" id="char-count" aria-live="polite">0/200</span>
+            </div>
+          </div>
+
+          <!-- Result -->
+          <div class="result-section" id="result-section" style="display:none;" aria-live="polite" aria-label="Hasil terjemahan BISINDO">
+            <div class="result-divider">
+              <span>Hasil Terjemahan BISINDO</span>
+            </div>
+
+            <div class="translate-card">
+              <div class="translate-label">Gerakan BISINDO per Kata</div>
+              <div class="gesture-result-grid" id="gesture-result" role="list" aria-label="Daftar gerakan BISINDO">
+                <span class="result-empty">⬆️ Masukkan teks di atas dan klik Terjemahkan</span>
+              </div>
+
+              <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border);">
+                <p style="font-size: 0.8rem; color: var(--text-muted);">
+                  💡 <strong>Tip:</strong> Kartu dengan label <span style="background: rgba(255,107,53,0.1); color: var(--warning); padding: 0.1rem 0.4rem; border-radius: 50px; font-size: 0.7rem; font-weight: 600;">belum ada</span> berarti kata tersebut belum tersedia di kamus kami.
+                  Coba sinonim atau cek <a href="kamus.html" style="color: var(--primary); font-weight: 600;">Kamus BISINDO</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: BISINDO → Indonesia -->
+        <div class="tab-content" id="tab-bisindo-to-id" role="tabpanel" aria-label="Terjemahan BISINDO ke Indonesia">
+          <div class="translate-card">
+            <div class="gesture-picker">
+              <div class="gesture-picker-title">
+                🤟 Klik gesture untuk membangun kalimat:
+              </div>
+
+              <div class="gesture-buttons-grid" id="gesture-buttons" role="group" aria-label="Pilih gesture BISINDO">
+                <!-- Salam -->
+                <button class="gesture-btn" data-word="Halo" aria-label="Gesture Halo">
+                  <span class="gesture-btn-emoji">👋</span>
+                  <div class="gesture-btn-label">Halo</div>
+                  <div class="gesture-btn-id">Salam</div>
+                </button>
+                <button class="gesture-btn" data-word="Terima kasih" aria-label="Gesture Terima kasih">
+                  <span class="gesture-btn-emoji">🙏</span>
+                  <div class="gesture-btn-label">Terima Kasih</div>
+                  <div class="gesture-btn-id">Salam</div>
+                </button>
+                <button class="gesture-btn" data-word="Maaf" aria-label="Gesture Maaf">
+                  <span class="gesture-btn-emoji">😔</span>
+                  <div class="gesture-btn-label">Maaf</div>
+                  <div class="gesture-btn-id">Salam</div>
+                </button>
+
+                <!-- Kata Ganti -->
+                <button class="gesture-btn" data-word="Saya" aria-label="Gesture Saya">
+                  <span class="gesture-btn-emoji">🫵</span>
+                  <div class="gesture-btn-label">Saya</div>
+                  <div class="gesture-btn-id">Kata Ganti</div>
+                </button>
+                <button class="gesture-btn" data-word="Kamu" aria-label="Gesture Kamu">
+                  <span class="gesture-btn-emoji">👉</span>
+                  <div class="gesture-btn-label">Kamu</div>
+                  <div class="gesture-btn-id">Kata Ganti</div>
+                </button>
+                <button class="gesture-btn" data-word="Dia" aria-label="Gesture Dia">
+                  <span class="gesture-btn-emoji">👈</span>
+                  <div class="gesture-btn-label">Dia</div>
+                  <div class="gesture-btn-id">Kata Ganti</div>
+                </button>
+
+                <!-- Aktivitas -->
+                <button class="gesture-btn" data-word="Makan" aria-label="Gesture Makan">
+                  <span class="gesture-btn-emoji">🍽️</span>
+                  <div class="gesture-btn-label">Makan</div>
+                  <div class="gesture-btn-id">Aktivitas</div>
+                </button>
+                <button class="gesture-btn" data-word="Minum" aria-label="Gesture Minum">
+                  <span class="gesture-btn-emoji">🥤</span>
+                  <div class="gesture-btn-label">Minum</div>
+                  <div class="gesture-btn-id">Aktivitas</div>
+                </button>
+                <button class="gesture-btn" data-word="Tidur" aria-label="Gesture Tidur">
+                  <span class="gesture-btn-emoji">😴</span>
+                  <div class="gesture-btn-label">Tidur</div>
+                  <div class="gesture-btn-id">Aktivitas</div>
+                </button>
+                <button class="gesture-btn" data-word="Pergi" aria-label="Gesture Pergi">
+                  <span class="gesture-btn-emoji">🏃</span>
+                  <div class="gesture-btn-label">Pergi</div>
+                  <div class="gesture-btn-id">Aktivitas</div>
+                </button>
+                <button class="gesture-btn" data-word="Datang" aria-label="Gesture Datang">
+                  <span class="gesture-btn-emoji">🤗</span>
+                  <div class="gesture-btn-label">Datang</div>
+                  <div class="gesture-btn-id">Aktivitas</div>
+                </button>
+                <button class="gesture-btn" data-word="Jalan" aria-label="Gesture Jalan">
+                  <span class="gesture-btn-emoji">🚶</span>
+                  <div class="gesture-btn-label">Jalan</div>
+                  <div class="gesture-btn-id">Aktivitas</div>
+                </button>
+
+                <!-- Respons -->
+                <button class="gesture-btn" data-word="Ya" aria-label="Gesture Ya">
+                  <span class="gesture-btn-emoji">✅</span>
+                  <div class="gesture-btn-label">Ya</div>
+                  <div class="gesture-btn-id">Respons</div>
+                </button>
+                <button class="gesture-btn" data-word="Tidak" aria-label="Gesture Tidak">
+                  <span class="gesture-btn-emoji">❌</span>
+                  <div class="gesture-btn-label">Tidak</div>
+                  <div class="gesture-btn-id">Respons</div>
+                </button>
+                <button class="gesture-btn" data-word="Tolong" aria-label="Gesture Tolong">
+                  <span class="gesture-btn-emoji">🆘</span>
+                  <div class="gesture-btn-label">Tolong</div>
+                  <div class="gesture-btn-id">Respons</div>
+                </button>
+
+                <!-- Perasaan -->
+                <button class="gesture-btn" data-word="Senang" aria-label="Gesture Senang">
+                  <span class="gesture-btn-emoji">😄</span>
+                  <div class="gesture-btn-label">Senang</div>
+                  <div class="gesture-btn-id">Perasaan</div>
+                </button>
+                <button class="gesture-btn" data-word="Sedih" aria-label="Gesture Sedih">
+                  <span class="gesture-btn-emoji">😢</span>
+                  <div class="gesture-btn-label">Sedih</div>
+                  <div class="gesture-btn-id">Perasaan</div>
+                </button>
+                <button class="gesture-btn" data-word="Lapar" aria-label="Gesture Lapar">
+                  <span class="gesture-btn-emoji">🤤</span>
+                  <div class="gesture-btn-label">Lapar</div>
+                  <div class="gesture-btn-id">Kondisi</div>
+                </button>
+                <button class="gesture-btn" data-word="Sakit" aria-label="Gesture Sakit">
+                  <span class="gesture-btn-emoji">🤒</span>
+                  <div class="gesture-btn-label">Sakit</div>
+                  <div class="gesture-btn-id">Kondisi</div>
+                </button>
+
+                <!-- Tempat -->
+                <button class="gesture-btn" data-word="Rumah" aria-label="Gesture Rumah">
+                  <span class="gesture-btn-emoji">🏠</span>
+                  <div class="gesture-btn-label">Rumah</div>
+                  <div class="gesture-btn-id">Tempat</div>
+                </button>
+                <button class="gesture-btn" data-word="Sekolah" aria-label="Gesture Sekolah">
+                  <span class="gesture-btn-emoji">🏫</span>
+                  <div class="gesture-btn-label">Sekolah</div>
+                  <div class="gesture-btn-id">Tempat</div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Sentence Builder -->
+            <div class="translate-label" style="margin-bottom: 0.75rem;">Kalimat yang Dibangun:</div>
+            <div class="sentence-builder" id="sentence-builder" aria-live="polite" aria-label="Kalimat yang sedang dibangun">
+              <span class="sentence-placeholder">Klik gesture di atas untuk membangun kalimat...</span>
+            </div>
+
+            <div style="display: flex; gap: 0.75rem; margin-top: 0.75rem;">
+              <button class="btn-clear" id="btn-clear-sentence" aria-label="Hapus semua gesture yang dipilih">
+                🗑️ Hapus Semua
+              </button>
+            </div>
+
+            <!-- Output -->
+            <div class="translation-output" id="translation-output" style="display:none; margin-top: 1.25rem;" aria-live="polite">
+              <div class="output-label">Terjemahan Bahasa Indonesia:</div>
+              <div class="output-text" id="output-text"></div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem; background: var(--surface); border-radius: var(--radius); padding: 1.25rem; border: 1px solid var(--border);">
+            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+              💡 <strong>Cara pakai:</strong> Klik tombol-tombol gesture di atas secara berurutan untuk membangun kalimat BISINDO.
+              Klik tanda ✕ pada kata untuk menghapusnya satu per satu.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand"><div class="brand-icon">🤟</div>SignBridge<span style="color:var(--accent);">+</span></div>
+          <p class="footer-desc">Jembatan komunikasi digital untuk teman tuli dan masyarakat umum.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="kamus.html">Kamus</a></li>
+            <li><a href="edukasi.html">Edukasi</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Info</h4>
+          <ul>
+            <li><a href="about.html">Tentang</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 SignBridge+ — Dibuat dengan <span class="footer-heart">❤️</span> untuk inklusi</span>
+        <span>🤟 BISINDO untuk Semua</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

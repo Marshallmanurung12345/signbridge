@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignBridge+ — Jembatan Komunikasi BISINDO</title>
+  <meta name="description" content="Platform penerjemah BISINDO ↔ Bahasa Indonesia. Jembatan komunikasi inklusif untuk teman tuli dan masyarakat umum.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤟</text></svg>">
+</head>
+<body data-page="home">
+
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="Menu utama">
+    <a href="index.html" class="nav-brand">
+      <div class="brand-icon" aria-hidden="true">🤟</div>
+      SignBridge<span class="brand-plus">+</span>
+    </a>
+
+    <ul class="nav-menu" role="list">
+      <li><a href="index.html" class="nav-link active" aria-current="page">Beranda</a></li>
+      <li><a href="translate.html" class="nav-link">Translate</a></li>
+      <li><a href="kamus.html" class="nav-link">Kamus</a></li>
+      <li><a href="edukasi.html" class="nav-link">Edukasi</a></li>
+      <li><a href="about.html" class="nav-link">Tentang</a></li>
+      <li><a href="contact.html" class="nav-link">Kontak</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <div class="accessibility-bar" role="group" aria-label="Aksesibilitas">
+        <button class="acc-btn" id="btn-contrast" title="Aktifkan Kontras Tinggi" aria-label="Toggle kontras tinggi">🎨</button>
+        <button class="acc-btn" id="btn-large-text" title="Perbesar Teks" aria-label="Toggle ukuran teks">🔍</button>
+      </div>
+      <a href="translate.html" class="btn-nav-cta">Mulai Translate</a>
+    </div>
+
+    <button class="hamburger" aria-label="Buka menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-nav-overlay" aria-hidden="true"></div>
+  <div class="mobile-menu" role="navigation" aria-label="Menu mobile">
+    <a href="index.html" class="nav-link active">🏠 Beranda</a>
+    <a href="translate.html" class="nav-link">🔄 Translate</a>
+    <a href="kamus.html" class="nav-link">📚 Kamus</a>
+    <a href="edukasi.html" class="nav-link">🎓 Edukasi</a>
+    <a href="about.html" class="nav-link">ℹ️ Tentang</a>
+    <a href="contact.html" class="nav-link">📞 Kontak</a>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-dots" aria-hidden="true"></div>
+
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-badge" aria-label="Tag inklusi">
+            🤟 Inklusif &amp; Interaktif
+          </div>
+
+          <h1 class="hero-title" id="hero-title">
+            Jembatan Komunikasi<br>
+            <em class="highlight">Tanpa Batas</em>
+          </h1>
+
+          <p class="hero-subtitle">
+            Terjemahkan Bahasa Indonesia ke BISINDO dan sebaliknya.
+            Platform inklusif untuk mendekatkan teman tuli dengan masyarakat umum.
+          </p>
+
+          <div class="hero-actions">
+            <a href="translate.html" class="btn-primary" aria-label="Mulai menggunakan fitur translate">
+              🔄 Mulai Translate
+            </a>
+            <a href="edukasi.html" class="btn-secondary" aria-label="Pelajari BISINDO">
+              📚 Pelajari BISINDO
+            </a>
+          </div>
+
+          <div class="hero-stats" role="group" aria-label="Statistik platform">
+            <div class="stat-item">
+              <div class="stat-num" data-target="30" data-suffix="+">0+</div>
+              <div class="stat-label">Kata BISINDO</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num" data-target="6" data-suffix="">0</div>
+              <div class="stat-label">Kategori</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num" data-target="100" data-suffix="%">0%</div>
+              <div class="stat-label">Gratis</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Demo Card -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-card-demo" role="presentation">
+            <div class="demo-header">
+              <div class="demo-dot"></div>
+              <div class="demo-dot"></div>
+              <div class="demo-dot"></div>
+              <span class="demo-title-bar">SignBridge+ Translator</span>
+            </div>
+            <div class="demo-input-row">
+              <em style="color: var(--text-muted);">Saya makan nasi</em>
+            </div>
+            <div class="demo-arrow" aria-hidden="true">⬇️</div>
+            <div class="demo-gesture-row">
+              <div class="demo-gesture-card">
+                <span class="demo-gesture-emoji">🫵</span>
+                <span class="demo-gesture-label">Saya</span>
+              </div>
+              <div class="demo-gesture-card">
+                <span class="demo-gesture-emoji">🍽️</span>
+                <span class="demo-gesture-label">Makan</span>
+              </div>
+              <div class="demo-gesture-card">
+                <span class="demo-gesture-emoji">🍚</span>
+                <span class="demo-gesture-label">Nasi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" aria-labelledby="features-title">
+      <div class="section-container">
+        <div class="section-badge" aria-label="Label fitur">⭐ Fitur Utama</div>
+        <h2 class="section-title" id="features-title">Semua yang Kamu Butuhkan</h2>
+        <p class="section-subtitle">
+          Platform lengkap untuk belajar dan berkomunikasi menggunakan BISINDO — Bahasa Isyarat Indonesia.
+        </p>
+
+        <div class="features-grid" role="list">
+          <article class="feature-card" role="listitem" onclick="location.href='translate.html'">
+            <div class="feature-icon blue" aria-hidden="true">🔤</div>
+            <h3>Indonesia → BISINDO</h3>
+            <p>Ketik teks Bahasa Indonesia dan lihat visualisasi gerakan BISINDO untuk setiap kata.</p>
+            <span class="feature-link" aria-hidden="true">Coba sekarang →</span>
+          </article>
+
+          <article class="feature-card" role="listitem" onclick="location.href='translate.html#bisindo'">
+            <div class="feature-icon green" aria-hidden="true">🤟</div>
+            <h3>BISINDO → Indonesia</h3>
+            <p>Pilih gesture BISINDO untuk membangun kalimat dan dapatkan terjemahan Bahasa Indonesia.</p>
+            <span class="feature-link" aria-hidden="true">Coba sekarang →</span>
+          </article>
+
+          <article class="feature-card" role="listitem" onclick="location.href='kamus.html'">
+            <div class="feature-icon orange" aria-hidden="true">📖</div>
+            <h3>Kamus BISINDO</h3>
+            <p>Jelajahi kamus lengkap kata-kata BISINDO dengan arti, kategori, dan visualisasi gerakan.</p>
+            <span class="feature-link" aria-hidden="true">Buka kamus →</span>
+          </article>
+
+          <article class="feature-card" role="listitem" onclick="location.href='edukasi.html'">
+            <div class="feature-icon purple" aria-hidden="true">🎓</div>
+            <h3>Edukasi Inklusif</h3>
+            <p>Pelajari tentang BISINDO, tips komunikasi, dan pentingnya inklusivitas dalam masyarakat.</p>
+            <span class="feature-link" aria-hidden="true">Mulai belajar →</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section style="padding: 4rem 2rem; background: var(--primary);">
+      <div style="max-width: 700px; margin: 0 auto; text-align: center; color: white;">
+        <h2 style="font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.5rem); margin-bottom: 1rem;">
+          Komunikasi Inklusif Dimulai dari Sini
+        </h2>
+        <p style="opacity: 0.85; margin-bottom: 2rem; font-size: 1rem; line-height: 1.7;">
+          Bergabunglah dalam gerakan inklusivitas. Pelajari BISINDO dan jadilah jembatan komunikasi untuk teman tuli di sekitarmu.
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="translate.html" style="background: white; color: var(--primary); padding: 0.875rem 2rem; border-radius: 50px; font-weight: 700; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: var(--transition);">
+            🚀 Mulai Sekarang
+          </a>
+          <a href="kamus.html" style="background: rgba(255,255,255,0.15); color: white; border: 2px solid rgba(255,255,255,0.4); padding: 0.875rem 2rem; border-radius: 50px; font-weight: 700; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+            📖 Lihat Kamus
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">
+            <div class="brand-icon" aria-hidden="true">🤟</div>
+            SignBridge<span style="color: var(--accent);">+</span>
+          </div>
+          <p class="footer-desc">
+            Jembatan komunikasi digital antara teman tuli dan masyarakat umum melalui BISINDO.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="translate.html">Translate</a></li>
+            <li><a href="kamus.html">Kamus</a></li>
+            <li><a href="edukasi.html">Edukasi</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Info</h4>
+          <ul>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 SignBridge+ — Dibuat dengan <span class="footer-heart">❤️</span> untuk inklusi</span>
+        <span>🤟 BISINDO untuk Semua</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
