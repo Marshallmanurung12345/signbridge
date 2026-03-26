@@ -6,105 +6,148 @@
     <title>Edukasi BISINDO — SignBridge+</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/pages.css" />
     <link
       rel="icon"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤟</text></svg>"
     />
   </head>
   <body data-page="edukasi">
-
+    <a href="#main-content" class="skip-link">Langsung ke konten utama</a>
     <nav class="navbar" role="navigation" aria-label="Menu utama">
-      <a href="index.html" class="nav-brand">
-        <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
-          <path d="M14 4C9.58 4 6 7.58 6 12c0 2.5 1.1 4.74 2.85 6.27L8 24h8l-.85-5.73C16.9 16.74 18 14.5 18 12c0-4.42-3.58-8-8-8z" fill="url(#nb1)"/>
-          <defs><linearGradient id="nb1" x1="6" y1="4" x2="22" y2="26" gradientUnits="userSpaceOnUse"><stop stop-color="#1A6EFF"/><stop offset="1" stop-color="#00C896"/></linearGradient></defs>
-        </svg>
-        SignBridge<span class="brand-plus">+</span>
-      </a>
+      <a href="index.html" class="nav-brand"
+        ><svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="14" fill="url(#bg4)" />
+          <path
+            d="M16 10c-2 0-3.5 1-4 2.5-.3.8 0 1.7.5 2.3l3 3.2c.3.3.7.3 1 0l3-3.2c.5-.6.8-1.5.5-2.3-.5-1.5-2-2.5-4-2.5z"
+            fill="white"
+            opacity="0.9"
+          />
+          <defs>
+            <linearGradient id="bg4" x1="0" y1="0" x2="32" y2="32">
+              <stop stop-color="#1565C0" />
+              <stop offset="1" stop-color="#00897B" />
+            </linearGradient>
+          </defs></svg
+        >SignBridge<span class="brand-plus">+</span></a
+      >
       <ul class="nav-menu" role="list">
         <li><a href="index.html" class="nav-link">Beranda</a></li>
         <li><a href="translate.html" class="nav-link">Translate</a></li>
         <li><a href="kamus.html" class="nav-link">Kamus</a></li>
-        <li><a href="edukasi.html" class="nav-link active" aria-current="page">Edukasi</a></li>
+        <li>
+          <a href="edukasi.html" class="nav-link active" aria-current="page"
+            >Edukasi</a
+          >
+        </li>
         <li><a href="about.html" class="nav-link">Tentang</a></li>
         <li><a href="contact.html" class="nav-link">Kontak</a></li>
       </ul>
       <div class="nav-actions">
         <div class="accessibility-bar" role="group" aria-label="Aksesibilitas">
-          <button class="acc-btn" id="btn-contrast" title="Kontras Tinggi" aria-label="Toggle kontras tinggi">
+          <button
+            class="acc-btn"
+            id="btn-contrast"
+            title="Kontras Tinggi"
+            aria-label="Toggle kontras tinggi"
+          >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" />
-              <path d="M8 1v14" stroke="currentColor" stroke-width="1.5" />
-              <path d="M8 1a7 7 0 0 1 0 14z" fill="currentColor" />
-            </svg>
-          </button>
-          <button class="acc-btn" id="btn-large-text" title="Perbesar Teks" aria-label="Toggle ukuran teks">
+              <circle
+                cx="8"
+                cy="8"
+                r="6.5"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <path d="M8 1.5v13" stroke="currentColor" stroke-width="1.5" />
+              <path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor" />
+            </svg></button
+          ><button
+            class="acc-btn"
+            id="btn-large-text"
+            title="Perbesar Teks"
+            aria-label="Toggle ukuran teks besar"
+          >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <text x="1" y="12" font-size="10" fill="currentColor" font-family="sans-serif" font-weight="700">A</text>
-              <text x="8" y="14" font-size="7" fill="currentColor" font-family="sans-serif" font-weight="700">A</text>
+              <text
+                x="1"
+                y="11"
+                font-size="9"
+                fill="currentColor"
+                font-family="sans-serif"
+                font-weight="700"
+              >
+                A
+              </text>
+              <text
+                x="9"
+                y="13"
+                font-size="7"
+                fill="currentColor"
+                font-family="sans-serif"
+                font-weight="700"
+              >
+                A
+              </text>
             </svg>
           </button>
         </div>
         <a href="translate.html" class="btn-nav-cta">Mulai Translate</a>
       </div>
-      <button class="hamburger" aria-label="Buka menu">
+      <button class="hamburger" aria-label="Buka menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </nav>
     <div class="mobile-nav-overlay" aria-hidden="true"></div>
     <div class="mobile-menu">
-      <a href="index.html" class="nav-link">🏠 Beranda</a>
-      <a href="translate.html" class="nav-link">🔄 Translate</a>
-      <a href="kamus.html" class="nav-link">📚 Kamus</a>
-      <a href="edukasi.html" class="nav-link active">🎓 Edukasi</a>
-      <a href="about.html" class="nav-link">ℹ️ Tentang</a>
-      <a href="contact.html" class="nav-link">📞 Kontak</a>
+      <a href="index.html" class="nav-link">Beranda</a
+      ><a href="translate.html" class="nav-link">Translate</a
+      ><a href="kamus.html" class="nav-link">Kamus</a
+      ><a href="edukasi.html" class="nav-link active">Edukasi</a
+      ><a href="about.html" class="nav-link">Tentang</a
+      ><a href="contact.html" class="nav-link">Kontak</a>
     </div>
 
-    <main>
-      <header class="hero" style="min-height: auto; padding: 4rem 2rem;">
+    <main id="main-content">
+      <header class="page-hero">
         <div class="hero-bg" aria-hidden="true">
-          <svg class="wave-svg" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 200 Q360 300 720 200 Q1080 100 1440 200 L1440 320 L0 320Z" fill="rgba(26,110,255,0.06)"/>
-            <path d="M0 240 Q400 280 800 240 Q1100 200 1440 240 L1440 320 L0 320Z" fill="rgba(0,200,150,0.04)"/>
-          </svg>
           <div class="hero-dots"></div>
         </div>
-        <div class="hero-container" style="text-align: center; grid-template-columns: 1fr; gap: 0;">
-          <div>
-            <h1 class="hero-title" style="margin-bottom: 0.5rem;">🎓 Edukasi BISINDO</h1>
-            <p class="hero-subtitle" style="margin: 0 auto;">Pelajari Bahasa Isyarat Indonesia dan wujudkan komunikasi yang lebih inklusif</p>
-          </div>
-        </div>
+        <h1>Edukasi BISINDO</h1>
+        <p>
+          Pelajari Bahasa Isyarat Indonesia dan wujudkan komunikasi yang lebih
+          inklusif
+        </p>
       </header>
 
-      <section class="edukasi-section" aria-labelledby="edukasi-heading">
+      <section class="edukasi-section">
         <div class="edukasi-container">
-          <div class="edukasi-grid" role="list">
-            <article class="edu-card" role="listitem">
-              <div class="edu-card-banner blue-banner" aria-hidden="true">🤟</div>
+          <div class="edukasi-grid">
+            <article class="sb-card edu-card reveal">
+              <div class="edu-card-banner blue-banner" aria-hidden="true">
+                🤟
+              </div>
               <div class="edu-card-body">
                 <span class="edu-tag">Pengenalan</span>
                 <h3>Apa itu BISINDO?</h3>
                 <p>
                   <strong>BISINDO</strong> (Bahasa Isyarat Indonesia) adalah
                   bahasa isyarat yang digunakan secara luas oleh komunitas Tuli
-                  di Indonesia. Berbeda dengan SIBI (Sistem Isyarat Bahasa
-                  Indonesia) yang berbasis urutan kata Bahasa Indonesia, BISINDO
-                  berkembang secara alami dalam komunitas Tuli dan memiliki tata
-                  bahasa serta struktur kalimatnya sendiri.
+                  di Indonesia. Berbeda dengan SIBI yang berbasis urutan kata
+                  Bahasa Indonesia, BISINDO berkembang secara alami dalam
+                  komunitas Tuli dan memiliki tata bahasa serta strukturnya
+                  sendiri.
                 </p>
                 <p style="margin-top: 0.75rem">
                   BISINDO menggunakan kombinasi gerakan tangan, ekspresi wajah,
-                  dan posisi tubuh untuk menyampaikan pesan. Bahasa ini bukan
-                  sekadar "versi isyarat" dari Bahasa Indonesia, melainkan
-                  bahasa yang mandiri dengan kekayaannya sendiri.
+                  dan posisi tubuh untuk menyampaikan pesan.
                 </p>
               </div>
             </article>
-
-            <article class="edu-card" role="listitem">
-              <div class="edu-card-banner green-banner" aria-hidden="true">👂</div>
+            <article class="sb-card edu-card reveal reveal-delay-1">
+              <div class="edu-card-banner green-banner" aria-hidden="true">
+                👂
+              </div>
               <div class="edu-card-body">
                 <span class="edu-tag">Komunitas</span>
                 <h3>Mengenal Komunitas Tuli</h3>
@@ -112,175 +155,72 @@
                   Komunitas Tuli adalah kelompok individu penyandang disabilitas
                   rungu yang memiliki budaya, bahasa, dan identitas tersendiri.
                   Di Indonesia, terdapat sekitar
-                  <strong>2,5 juta jiwa</strong> penyandang disabilitas rungu
-                  berdasarkan data nasional.
+                  <strong>2,5 juta jiwa</strong> penyandang disabilitas rungu.
                 </p>
                 <p style="margin-top: 0.75rem">
-                  Mereka adalah bagian penuh dari masyarakat — berprestasi,
-                  berkarya, dan berkontribusi dalam berbagai bidang. Yang dibutuhkan
-                  adalah jembatan komunikasi agar dapat berinteraksi
-                  setara dengan masyarakat luas.
+                  Mereka berprestasi, berkarya, dan berkontribusi dalam berbagai
+                  bidang. Yang dibutuhkan adalah jembatan komunikasi agar dapat
+                  berinteraksi setara.
                 </p>
               </div>
             </article>
-
-            <article class="edu-card" role="listitem">
-              <div class="edu-card-banner orange-banner" aria-hidden="true">🌟</div>
+            <article class="sb-card edu-card reveal reveal-delay-2">
+              <div class="edu-card-banner orange-banner" aria-hidden="true">
+                🌟
+              </div>
               <div class="edu-card-body">
                 <span class="edu-tag">Inklusivitas</span>
                 <h3>Pentingnya Inklusivitas</h3>
                 <p>
-                  Inklusivitas bukan hanya slogan — ini adalah hak asasi. UU No.
-                  8 Tahun 2016 tentang Penyandang Disabilitas menjamin hak
-                  komunitas Tuli untuk mendapatkan layanan publik yang aksesibel
-                  dan komunikasi yang setara.
-                </p>
-                <p style="margin-top: 0.75rem">
-                  Ketika kita belajar BISINDO, kita tidak hanya memperluas
-                  kemampuan komunikasi diri sendiri — kita membangun masyarakat
-                  yang lebih manusiawi dan menghargai keberagaman.
+                  UU No. 8 Tahun 2016 menjamin hak komunitas Tuli untuk
+                  mendapatkan layanan publik yang aksesibel. Ketika kita belajar
+                  BISINDO, kita membangun masyarakat yang lebih manusiawi.
                 </p>
               </div>
             </article>
-
-            <article class="edu-card" role="listitem">
-              <div class="edu-card-banner purple-banner" aria-hidden="true">📱</div>
+            <article class="sb-card edu-card reveal reveal-delay-3">
+              <div class="edu-card-banner purple-banner" aria-hidden="true">
+                📱
+              </div>
               <div class="edu-card-body">
                 <span class="edu-tag">Teknologi</span>
                 <h3>Peran Teknologi dalam Inklusi</h3>
                 <p>
-                  Teknologi digital membuka peluang besar untuk aksesibilitas.
                   Dari subtitle otomatis hingga penerjemah bahasa isyarat
-                  berbasis AI, inovasi teknologi menjadi jembatan penting bagi
-                  komunitas Tuli untuk berpartisipasi penuh dalam kehidupan
-                  digital.
-                </p>
-                <p style="margin-top: 0.75rem">
-                  SignBridge+ hadir sebagai langkah kecil namun bermakna:
-                  memberikan akses mudah ke BISINDO melalui platform digital
-                  yang inklusif.
+                  berbasis AI, inovasi teknologi menjadi jembatan penting.
+                  SignBridge+ hadir sebagai langkah bermakna: memberikan akses
+                  mudah ke BISINDO melalui platform digital.
                 </p>
               </div>
             </article>
           </div>
 
-          <!-- Infographic Stats -->
-          <div class="info-section" role="region" aria-label="Fakta tentang komunitas Tuli">
+          <div class="info-section reveal">
             <h2>Fakta Penting</h2>
-            <p>Data yang perlu kamu ketahui tentang komunitas Tuli di Indonesia</p>
-            <div class="info-grid" role="list">
-              <div class="info-item" role="listitem">
+            <p>
+              Data yang perlu kamu ketahui tentang komunitas Tuli di Indonesia
+            </p>
+            <div class="info-grid">
+              <div class="info-item">
                 <span class="info-icon" aria-hidden="true">👥</span>
                 <h4>~2,5 Juta Jiwa</h4>
-                <p>Penyandang disabilitas rungu di Indonesia (sumber: BPS)</p>
+                <p>Penyandang disabilitas rungu di Indonesia (BPS)</p>
               </div>
-              <div class="info-item" role="listitem">
+              <div class="info-item">
                 <span class="info-icon" aria-hidden="true">🏫</span>
                 <h4>700+ SLB</h4>
-                <p>Sekolah Luar Biasa yang melayani siswa tunarungu di Indonesia</p>
+                <p>Sekolah Luar Biasa melayani siswa tunarungu</p>
               </div>
-              <div class="info-item" role="listitem">
+              <div class="info-item">
                 <span class="info-icon" aria-hidden="true">🤝</span>
                 <h4>GERKATIN</h4>
-                <p>Organisasi nasional komunitas Tuli Indonesia yang aktif sejak 1981</p>
+                <p>Organisasi nasional komunitas Tuli aktif sejak 1981</p>
               </div>
-              <div class="info-item" role="listitem">
+              <div class="info-item">
                 <span class="info-icon" aria-hidden="true">⚖️</span>
                 <h4>UU No. 8/2016</h4>
-                <p>Undang-undang yang menjamin hak penyandang disabilitas di Indonesia</p>
+                <p>Menjamin hak penyandang disabilitas di Indonesia</p>
               </div>
-            </div>
-          </div>
-
-          <!-- Tips Komunikasi -->
-          <div class="tips-section" role="region" aria-labelledby="tips-heading">
-            <h2 id="tips-heading">💬 Tips Berkomunikasi dengan Komunitas Tuli</h2>
-            <div class="tips-list" role="list">
-              <div class="tip-item" role="listitem">
-                <div class="tip-num" aria-hidden="true">1</div>
-                <div class="tip-content">
-                  <h4>Tatap Wajah, Bukan Tangan</h4>
-                  <p>
-                    Saat berkomunikasi, tatap wajah lawan bicara — bukan
-                    tangannya. Ekspresi wajah adalah bagian penting dari bahasa
-                    isyarat dan menunjukkan rasa hormat serta keterlibatan penuh.
-                  </p>
-                </div>
-              </div>
-
-              <div class="tip-item" role="listitem">
-                <div class="tip-num" aria-hidden="true">2</div>
-                <div class="tip-content">
-                  <h4>Pastikan Pencahayaan Cukup</h4>
-                  <p>
-                    Pastikan area komunikasi cukup terang agar penyandang
-                    disabilitas rungu dapat melihat gerakan tangan dan ekspresi
-                    wajahmu dengan jelas dan nyaman.
-                  </p>
-                </div>
-              </div>
-
-              <div class="tip-item" role="listitem">
-                <div class="tip-num" aria-hidden="true">3</div>
-                <div class="tip-content">
-                  <h4>Gunakan Visual dan Tulisan</h4>
-                  <p>
-                    Jika belum fasih BISINDO, gunakan tulisan, gambar, atau
-                    gesture umum. Komunitas Tuli sangat terbiasa dengan
-                    komunikasi visual alternatif dan akan menghargai usahamu.
-                  </p>
-                </div>
-              </div>
-
-              <div class="tip-item" role="listitem">
-                <div class="tip-num" aria-hidden="true">4</div>
-                <div class="tip-content">
-                  <h4>Bicara Alami, Jangan Berlebihan</h4>
-                  <p>
-                    Banyak penyandang disabilitas rungu yang bisa membaca gerak
-                    bibir. Bicaralah dengan alami dan jelas — berteriak atau
-                    membesar-besarkan gerakan mulut justru menyulitkan pemahaman.
-                  </p>
-                </div>
-              </div>
-
-              <div class="tip-item" role="listitem">
-                <div class="tip-num" aria-hidden="true">5</div>
-                <div class="tip-content">
-                  <h4>Sediakan Juru Bahasa Isyarat jika Dibutuhkan</h4>
-                  <p>
-                    Untuk situasi penting (medis, hukum, pendidikan), selalu
-                    sediakan juru bahasa isyarat yang terlatih. Ini adalah hak
-                    yang dijamin undang-undang bagi penyandang disabilitas rungu.
-                  </p>
-                </div>
-              </div>
-
-              <div class="tip-item" role="listitem">
-                <div class="tip-num" aria-hidden="true">6</div>
-                <div class="tip-content">
-                  <h4>Pelajari Kosakata Dasar BISINDO</h4>
-                  <p>
-                    Beberapa kata dasar seperti "halo", "terima kasih", dan
-                    "tolong" sangat berarti. Tunjukkan usahamu — komunitas Tuli
-                    pasti menghargai setiap langkah kecil menuju komunikasi inklusif!
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- CTA -->
-          <div style="margin-top: 3rem; background: linear-gradient(135deg, rgba(0, 200, 150, 0.1), rgba(26, 110, 255, 0.08)); border: 1px solid rgba(0, 200, 150, 0.3); border-radius: var(--radius-lg); padding: 2.5rem; text-align: center;">
-            <div style="font-size: 3rem; margin-bottom: 1rem" aria-hidden="true">🤟</div>
-            <h3 style="font-family: var(--font-display); font-size: 1.75rem; margin-bottom: 0.75rem;">Siap Mulai Belajar?</h3>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7;">
-              Praktikkan langsung dengan fitur Translate dan Kamus kami. Setiap
-              kata yang kamu pelajari membuat dunia lebih inklusif.
-            </p>
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-              <a href="translate.html" class="btn-primary">🔄 Coba Translate</a>
-              <a href="kamus.html" class="btn-secondary">📖 Buka Kamus</a>
             </div>
           </div>
         </div>
@@ -292,15 +232,26 @@
         <div class="footer-top">
           <div>
             <div class="footer-brand">
-              <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
-                <path d="M14 4C9.58 4 6 7.58 6 12c0 2.5 1.1 4.74 2.85 6.27L8 24h8l-.85-5.73C16.9 16.74 18 14.5 18 12c0-4.42-3.58-8-8-8z" fill="url(#fg1)"/>
-                <defs><linearGradient id="fg1" x1="6" y1="4" x2="22" y2="26" gradientUnits="userSpaceOnUse"><stop stop-color="#1A6EFF"/><stop offset="1" stop-color="#00C896"/></linearGradient></defs>
-              </svg>
-              SignBridge<span style="color: var(--accent)">+</span>
+              <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="14" fill="url(#fg4)" />
+                <path
+                  d="M16 10c-2 0-3.5 1-4 2.5-.3.8 0 1.7.5 2.3l3 3.2c.3.3.7.3 1 0l3-3.2c.5-.6.8-1.5.5-2.3-.5-1.5-2-2.5-4-2.5z"
+                  fill="white"
+                  opacity="0.9"
+                />
+                <defs>
+                  <linearGradient id="fg4" x1="0" y1="0" x2="32" y2="32">
+                    <stop stop-color="#1565C0" />
+                    <stop offset="1" stop-color="#00897B" />
+                  </linearGradient>
+                </defs></svg
+              >SignBridge<span style="color: var(--accent)">+</span>
             </div>
-            <p class="footer-desc">Jembatan komunikasi digital untuk komunitas Tuli dan masyarakat umum.</p>
+            <p class="footer-desc">
+              Jembatan komunikasi digital untuk teman tuli dan masyarakat umum.
+            </p>
           </div>
-          <div class="footer-col">
+          <div>
             <h4>Navigasi</h4>
             <ul>
               <li><a href="index.html">Beranda</a></li>
@@ -308,7 +259,7 @@
               <li><a href="kamus.html">Kamus</a></li>
             </ul>
           </div>
-          <div class="footer-col">
+          <div>
             <h4>Info</h4>
             <ul>
               <li><a href="about.html">Tentang</a></li>
@@ -317,12 +268,10 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <span>© 2024 SignBridge+ &mdash; Dibuat dengan sepenuh hati untuk inklusi</span>
-          <span style="color: var(--accent); font-weight: 600;">🤟 BISINDO untuk Semua</span>
+          <span>© 2024 SignBridge+</span><span>Platform BISINDO inklusif</span>
         </div>
       </div>
     </footer>
-
     <script src="js/script.js"></script>
   </body>
 </html>

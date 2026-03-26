@@ -1,299 +1,593 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SignBridge+ — Jembatan Komunikasi BISINDO</title>
-  <meta name="description" content="Platform penerjemah BISINDO ↔ Bahasa Indonesia. Jembatan komunikasi inklusif untuk komunitas Tuli dan masyarakat umum.">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/home.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤟</text></svg>">
-</head>
-<body data-page="home">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignBridge+ — Jembatan Komunikasi BISINDO</title>
+    <meta
+      name="description"
+      content="Platform penerjemah BISINDO ↔ Bahasa Indonesia. Jembatan komunikasi inklusif untuk komunitas Tuli dan masyarakat umum."
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤟</text></svg>"
+    />
+  </head>
+  <body data-page="home">
+    <a href="#main-content" class="skip-link">Langsung ke konten utama</a>
 
-  <nav class="navbar" role="navigation" aria-label="Menu utama">
-    <a href="index.html" class="nav-brand">
-      <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
-        <path d="M14 4C9.58 4 6 7.58 6 12c0 2.5 1.1 4.74 2.85 6.27L8 24h8l-.85-5.73C16.9 16.74 18 14.5 18 12c0-4.42-3.58-8-8-8z" fill="url(#nb1)"/>
-        <defs><linearGradient id="nb1" x1="6" y1="4" x2="22" y2="26" gradientUnits="userSpaceOnUse"><stop stop-color="#1A6EFF"/><stop offset="1" stop-color="#00C896"/></linearGradient></defs>
-      </svg>
-      SignBridge<span class="brand-plus">+</span>
-    </a>
-    <ul class="nav-menu" role="list">
-      <li><a href="index.html" class="nav-link active" aria-current="page">Beranda</a></li>
-      <li><a href="translate.html" class="nav-link">Translate</a></li>
-      <li><a href="kamus.html" class="nav-link">Kamus</a></li>
-      <li><a href="edukasi.html" class="nav-link">Edukasi</a></li>
-      <li><a href="about.html" class="nav-link">Tentang</a></li>
-      <li><a href="contact.html" class="nav-link">Kontak</a></li>
-    </ul>
-    <div class="nav-actions">
-      <div class="accessibility-bar" role="group" aria-label="Aksesibilitas">
-        <button class="acc-btn" id="btn-contrast" title="Kontras Tinggi" aria-label="Toggle kontras tinggi">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v14" stroke="currentColor" stroke-width="1.5"/><path d="M8 1a7 7 0 0 1 0 14z" fill="currentColor"/></svg>
-        </button>
-        <button class="acc-btn" id="btn-large-text" title="Perbesar Teks" aria-label="Toggle ukuran teks">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><text x="1" y="12" font-size="10" fill="currentColor" font-family="sans-serif" font-weight="700">A</text><text x="8" y="14" font-size="7" fill="currentColor" font-family="sans-serif" font-weight="700">A</text></svg>
-        </button>
-      </div>
-      <a href="translate.html" class="btn-nav-cta">Mulai Translate</a>
-    </div>
-    <button class="hamburger" aria-label="Buka menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <div class="mobile-nav-overlay" aria-hidden="true"></div>
-  <div class="mobile-menu" role="navigation" aria-label="Menu mobile">
-    <a href="index.html" class="nav-link active">Beranda</a>
-    <a href="translate.html" class="nav-link">Translate</a>
-    <a href="kamus.html" class="nav-link">Kamus</a>
-    <a href="edukasi.html" class="nav-link">Edukasi</a>
-    <a href="about.html" class="nav-link">Tentang</a>
-    <a href="contact.html" class="nav-link">Kontak</a>
-  </div>
-
-  <main>
-
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-bg" aria-hidden="true">
-        <svg class="wave-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- NAVBAR -->
+    <nav class="navbar" role="navigation" aria-label="Menu utama">
+      <a href="index.html" class="nav-brand" aria-label="SignBridge+ Beranda">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="14" fill="url(#bg)" />
+          <path
+            d="M16 10c-2 0-3.5 1-4 2.5-.3.8 0 1.7.5 2.3l3 3.2c.3.3.7.3 1 0l3-3.2c.5-.6.8-1.5.5-2.3-.5-1.5-2-2.5-4-2.5z"
+            fill="white"
+            opacity="0.9"
+          />
+          <path
+            d="M12 20c0 1.5 1.8 3 4 3s4-1.5 4-3"
+            stroke="white"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            opacity="0.7"
+          />
           <defs>
-            <linearGradient id="wg1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#1A6EFF" stop-opacity="0.07"/>
-              <stop offset="100%" stop-color="#00C896" stop-opacity="0.04"/>
+            <linearGradient id="bg" x1="0" y1="0" x2="32" y2="32">
+              <stop stop-color="#1565C0" />
+              <stop offset="1" stop-color="#00897B" />
             </linearGradient>
           </defs>
-          <path d="M0 500 Q360 350 720 480 Q1080 610 1440 400 L1440 900 L0 900Z" fill="url(#wg1)"/>
-          <path d="M0 600 Q400 450 800 550 Q1100 620 1440 500 L1440 900 L0 900Z" fill="rgba(26,110,255,0.03)"/>
-          <circle cx="200" cy="200" r="300" fill="rgba(26,110,255,0.04)"/>
-          <circle cx="1300" cy="700" r="250" fill="rgba(0,200,150,0.05)"/>
         </svg>
-        <div class="hero-dots"></div>
-      </div>
-
-      <div class="hero-container">
-        <div class="hero-content">
-          <div class="hero-badge">
-            <span class="badge-dot"></span>
-          </div>
-          <h1 class="hero-title" id="hero-title">
-            Jembatan Komunikasi<br>
-            <em class="hero-italic">Tanpa Batas</em>
-          </h1>
-          <p class="hero-subtitle">
-            Terjemahkan Bahasa Indonesia ke BISINDO dan sebaliknya.
-            Platform inklusif untuk mendekatkan komunitas Tuli dengan masyarakat umum.
-          </p>
-          <div class="hero-actions">
-            <a href="translate.html" class="btn-hero-primary">
-              Mulai Translate
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a href="edukasi.html" class="btn-hero-secondary">Pelajari BISINDO</a>
-          </div>
-          <div class="hero-stats" role="group" aria-label="Statistik platform">
-            <div class="stat-item">
-              <div class="stat-num" data-target="30" data-suffix="+">0+</div>
-              <div class="stat-label">Kata BISINDO</div>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-              <div class="stat-num" data-target="6" data-suffix="">0</div>
-              <div class="stat-label">Kategori</div>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-              <div class="stat-num" data-target="100" data-suffix="%">0%</div>
-              <div class="stat-label">Gratis</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-visual" aria-hidden="true">
-          <div class="hero-card-demo">
-            <div class="demo-topbar">
-              <div class="demo-dots">
-                <span class="ddot red"></span>
-                <span class="ddot yellow"></span>
-                <span class="ddot green"></span>
-              </div>
-              <span class="demo-title-bar">SignBridge+ Translator</span>
-              <span class="demo-badge-small">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00A07A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                30+ Kata BISINDO
-              </span>
-            </div>
-            <div class="demo-input-area">
-              <span class="demo-input-text">Saya mau makan nasi</span>
-              <button class="demo-mic-btn" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="4" y="1" width="6" height="8" rx="3" stroke="#1A6EFF" stroke-width="1.5"/><path d="M2 7a5 5 0 0 0 10 0" stroke="#1A6EFF" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="12" x2="7" y2="14" stroke="#1A6EFF" stroke-width="1.5" stroke-linecap="round"/></svg>
-              </button>
-            </div>
-            <div class="demo-arrow-row">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3v14M5 13l5 5 5-5" stroke="#1A6EFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="demo-gesture-row">
-              <div class="demo-g-card active">
-                <div class="demo-g-photo" style="background:linear-gradient(135deg,#e8f0ff,#c5d5ff);">
-                  <svg viewBox="0 0 80 80" width="54" height="54" xmlns="http://www.w3.org/2000/svg">
-                    <ellipse cx="40" cy="58" rx="18" ry="18" fill="#f4c99a"/>
-                    <rect x="33" y="8" width="8" height="20" rx="4" fill="#f4c99a"/>
-                    <ellipse cx="37" cy="8" rx="4" ry="4" fill="#f0b985"/>
-                    <rect x="28" y="24" width="8" height="22" rx="4" fill="#f4c99a"/>
-                    <rect x="43" y="28" width="8" height="20" rx="4" fill="#f4c99a"/>
-                  </svg>
-                </div>
-                <span class="demo-g-label">Saya</span>
-              </div>
-              <div class="demo-g-card">
-                <div class="demo-g-photo" style="background:linear-gradient(135deg,#e0fbf4,#a8efd8);">
-                  <svg viewBox="0 0 80 80" width="54" height="54" xmlns="http://www.w3.org/2000/svg">
-                    <ellipse cx="40" cy="58" rx="18" ry="18" fill="#f4c99a"/>
-                    <rect x="26" y="30" width="8" height="22" rx="4" fill="#f4c99a"/>
-                    <rect x="36" y="26" width="8" height="26" rx="4" fill="#f4c99a"/>
-                    <rect x="46" y="30" width="8" height="22" rx="4" fill="#f4c99a"/>
-                    <ellipse cx="30" cy="30" rx="4" ry="4" fill="#f0b985"/>
-                    <ellipse cx="40" cy="26" rx="4" ry="4" fill="#f0b985"/>
-                    <ellipse cx="50" cy="30" rx="4" ry="4" fill="#f0b985"/>
-                  </svg>
-                </div>
-                <span class="demo-g-label">Makan</span>
-              </div>
-              <div class="demo-g-card">
-                <div class="demo-g-photo" style="background:linear-gradient(135deg,#fff0e8,#ffd0b5);">
-                  <svg viewBox="0 0 80 80" width="54" height="54" xmlns="http://www.w3.org/2000/svg">
-                    <ellipse cx="32" cy="52" rx="14" ry="14" fill="#f4c99a"/>
-                    <ellipse cx="52" cy="52" rx="14" ry="14" fill="#f0b985"/>
-                    <ellipse cx="40" cy="42" rx="20" ry="10" fill="#f4c99a"/>
-                    <ellipse cx="36" cy="40" rx="3" ry="5" fill="white" opacity="0.8" transform="rotate(-15 36 40)"/>
-                    <ellipse cx="44" cy="38" rx="3" ry="5" fill="white" opacity="0.8" transform="rotate(10 44 38)"/>
-                    <ellipse cx="40" cy="36" rx="3" ry="5" fill="white" opacity="0.8"/>
-                  </svg>
-                </div>
-                <span class="demo-g-label">Nasi</span>
-              </div>
-            </div>
-          </div>
-          <div class="float-card float-card-2">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="#1A6EFF" opacity="0.15"/><path d="M8 4v4l2.5 2.5" stroke="#1A6EFF" stroke-width="1.5" stroke-linecap="round"/></svg>
-            <span>Real-time</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FITUR UTAMA -->
-    <section class="features-section" aria-labelledby="features-title">
-      <div class="section-container">
-        <div class="section-tag">Fitur Utama</div>
-        <h2 class="section-title" id="features-title">Semua yang Kamu Butuhkan</h2>
-        <p class="section-subtitle">
-          Platform lengkap untuk belajar dan berkomunikasi menggunakan BISINDO — Bahasa Isyarat Indonesia.
-        </p>
-        <div class="features-grid" role="list">
-
-          <article class="feature-card fc-blue" role="listitem" onclick="location.href='translate.html'">
-            <div class="fc-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 5h7M9 3v2M15 5h5M14 5c-.5 3.5-2 6.5-5 8.5M11 13.5c2 1 5.5 2.5 7.5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3>Indonesia → BISINDO</h3>
-            <p>Ketik teks Bahasa Indonesia dan lihat visualisasi gerakan BISINDO untuk setiap kata.</p>
-            <span class="fc-link">Coba Sekarang</span>
-          </article>
-
-          <article class="feature-card fc-green" role="listitem" onclick="location.href='translate.html'">
-            <div class="fc-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M7 4c0 3 1.5 5 3.5 6S15 12 16 15M7 4h10M12 4v3M10 20h4M8 20c0-3 1.5-5 3.5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-            </div>
-            <h3>BISINDO → Indonesia</h3>
-            <p>Pilih gesture BISINDO untuk membangun kalimat dan dapatkan terjemahan Bahasa Indonesia.</p>
-            <span class="fc-link">Coba Sekarang</span>
-          </article>
-
-          <article class="feature-card fc-orange" role="listitem" onclick="location.href='kamus.html'">
-            <div class="fc-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M7 3v18M10 8h8M10 12h8M10 16h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            </div>
-            <h3>Kamus BISINDO</h3>
-            <p>Jelajahi kamus lengkap kata-kata BISINDO dengan arti, kategori, dan visualisasi gerakan.</p>
-            <span class="fc-link">Buka Kamus</span>
-          </article>
-
-          <article class="feature-card fc-purple" role="listitem" onclick="location.href='edukasi.html'">
-            <div class="fc-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 4L2 9l10 5 10-5-10-5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M2 14l10 5 10-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3>Edukasi Inklusif</h3>
-            <p>Pelajari tentang BISINDO, tips komunikasi, dan pentingnya inklusivitas dalam masyarakat.</p>
-            <span class="fc-link">Mulai Belajar</span>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-      <div class="cta-waves" aria-hidden="true">
-        <svg viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 100 Q360 200 720 100 Q1080 0 1440 100 L1440 320 L0 320Z" fill="rgba(255,255,255,0.04)"/>
-        </svg>
-      </div>
-      <div class="cta-inner">
-        <h2 class="cta-title">Komunikasi Inklusif Dimulai dari Sini</h2>
-        <p class="cta-sub">
-          Bergabunglah dalam gerakan inklusivitas. Pelajari BISINDO dan jadilah jembatan komunikasi bagi komunitas Tuli di sekitarmu.
-        </p>
-        <div class="cta-actions">
-          <a href="translate.html" class="btn-cta-white">Mulai Sekarang</a>
-          <a href="kamus.html" class="btn-cta-outline">Lihat Kamus</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer role="contentinfo">
-    <div class="footer-container">
-      <div class="footer-top">
-        <div>
-          <div class="footer-brand">
-            <svg width="22" height="22" viewBox="0 0 28 28" fill="none" style="margin-right:6px">
-              <path d="M14 4C9.58 4 6 7.58 6 12c0 2.5 1.1 4.74 2.85 6.27L8 24h8l-.85-5.73C16.9 16.74 18 14.5 18 12c0-4.42-3.58-8-8-8z" fill="url(#fg1)"/>
-              <defs><linearGradient id="fg1" x1="6" y1="4" x2="22" y2="26" gradientUnits="userSpaceOnUse"><stop stop-color="#1A6EFF"/><stop offset="1" stop-color="#00C896"/></linearGradient></defs>
+        SignBridge<span class="brand-plus">+</span>
+      </a>
+      <ul class="nav-menu" role="list">
+        <li>
+          <a href="index.html" class="nav-link active" aria-current="page"
+            >Beranda</a
+          >
+        </li>
+        <li><a href="translate.html" class="nav-link">Translate</a></li>
+        <li><a href="kamus.html" class="nav-link">Kamus</a></li>
+        <li><a href="edukasi.html" class="nav-link">Edukasi</a></li>
+        <li><a href="about.html" class="nav-link">Tentang</a></li>
+        <li><a href="contact.html" class="nav-link">Kontak</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="accessibility-bar" role="group" aria-label="Aksesibilitas">
+          <button
+            class="acc-btn"
+            id="btn-contrast"
+            title="Kontras Tinggi"
+            aria-label="Toggle kontras tinggi"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <circle
+                cx="8"
+                cy="8"
+                r="6.5"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <path d="M8 1.5v13" stroke="currentColor" stroke-width="1.5" />
+              <path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor" />
             </svg>
-            SignBridge<span style="color:var(--accent);">+</span>
-          </div>
-          <p class="footer-desc">Jembatan komunikasi digital antara komunitas Tuli dan masyarakat umum melalui BISINDO.</p>
+          </button>
+          <button
+            class="acc-btn"
+            id="btn-large-text"
+            title="Perbesar Teks"
+            aria-label="Toggle ukuran teks besar"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <text
+                x="1"
+                y="11"
+                font-size="9"
+                fill="currentColor"
+                font-family="sans-serif"
+                font-weight="700"
+              >
+                A
+              </text>
+              <text
+                x="9"
+                y="13"
+                font-size="7"
+                fill="currentColor"
+                font-family="sans-serif"
+                font-weight="700"
+              >
+                A
+              </text>
+            </svg>
+          </button>
         </div>
-        <div class="footer-col">
-          <h4>Navigasi</h4>
-          <ul>
-            <li><a href="translate.html">Translate</a></li>
-            <li><a href="kamus.html">Kamus</a></li>
-            <li><a href="edukasi.html">Edukasi</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Info</h4>
-          <ul>
-            <li><a href="about.html">Tentang Kami</a></li>
-            <li><a href="contact.html">Kontak</a></li>
-          </ul>
-        </div>
+        <a href="translate.html" class="btn-nav-cta">Mulai Translate</a>
       </div>
-      <div class="footer-bottom">
-        <span>© 2024 SignBridge+ &mdash; Dibuat dengan sepenuh hati untuk inklusi</span>
-        <span style="color: var(--accent); font-weight: 600;">🤟 BISINDO untuk Semua</span>
+      <button class="hamburger" aria-label="Buka menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="mobile-nav-overlay" aria-hidden="true"></div>
+    <div class="mobile-menu" role="navigation" aria-label="Menu mobile">
+      <a href="index.html" class="nav-link active">Beranda</a>
+      <a href="translate.html" class="nav-link">Translate</a>
+      <a href="kamus.html" class="nav-link">Kamus</a>
+      <a href="edukasi.html" class="nav-link">Edukasi</a>
+      <a href="about.html" class="nav-link">Tentang</a>
+      <a href="contact.html" class="nav-link">Kontak</a>
+    </div>
+
+    <main id="main-content">
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-bg" aria-hidden="true">
+          <svg
+            class="wave-svg"
+            viewBox="0 0 1440 900"
+            preserveAspectRatio="xMidYMid slice"
+          >
+            <defs>
+              <linearGradient id="hg1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1565C0" stop-opacity="0.07" />
+                <stop offset="100%" stop-color="#00897B" stop-opacity="0.04" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M0 500 Q360 350 720 480 Q1080 610 1440 400 L1440 900 L0 900Z"
+              fill="url(#hg1)"
+            />
+            <circle cx="200" cy="200" r="300" fill="rgba(21,101,192,0.03)" />
+            <circle cx="1300" cy="700" r="250" fill="rgba(0,137,123,0.04)" />
+          </svg>
+          <div class="hero-dots"></div>
+        </div>
+
+        <div class="hero-container">
+          <div class="hero-content">
+            <div class="hero-badge reveal">
+              <span class="badge-dot"></span>
+              Platform BISINDO Inklusif
+            </div>
+            <h1 class="hero-title reveal reveal-delay-1" id="hero-title">
+              Jembatan Komunikasi<br />
+              <em class="hero-italic">Tanpa Batas</em>
+            </h1>
+            <p class="hero-subtitle reveal reveal-delay-2">
+              Terjemahkan Bahasa Indonesia ke BISINDO dan sebaliknya. Platform
+              inklusif untuk mendekatkan komunitas Tuli dengan masyarakat umum.
+            </p>
+            <p class="hero-impact-quote reveal reveal-delay-2">
+              Di Indonesia, <strong>2,5 juta jiwa</strong> penyandang
+              disabilitas rungu menghadapi hambatan komunikasi setiap hari.
+              SignBridge+ hadir sebagai jembatan digital untuk menghapus
+              kesenjangan itu.
+            </p>
+            <div class="hero-actions reveal reveal-delay-3">
+              <a href="translate.html" class="sb-btn-primary">
+                Coba Translate Sekarang
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M3 8h10M9 4l4 4-4 4"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <a href="edukasi.html" class="sb-btn-secondary"
+                >Pelajari BISINDO</a
+              >
+            </div>
+            <div
+              class="hero-stats reveal reveal-delay-4"
+              role="group"
+              aria-label="Statistik platform"
+            >
+              <div class="stat-item">
+                <div class="stat-num" data-target="30" data-suffix="+">0+</div>
+                <div class="stat-label">Kata BISINDO</div>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <div class="stat-num" data-target="6" data-suffix="">0</div>
+                <div class="stat-label">Kategori</div>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <div class="stat-num" data-target="100" data-suffix="%">0%</div>
+                <div class="stat-label">Gratis</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal" aria-hidden="true">
+            <div class="hero-card-demo">
+              <div class="demo-topbar">
+                <div class="demo-dots">
+                  <span class="ddot red"></span><span class="ddot yellow"></span
+                  ><span class="ddot green"></span>
+                </div>
+                <span class="demo-title-bar">SignBridge+ Translator</span>
+                <span class="demo-badge-small">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path
+                      d="M2 5l2 2 4-4"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  30+ Kata
+                </span>
+              </div>
+              <div class="demo-input-area">
+                <span>Saya mau makan nasi</span>
+              </div>
+              <div class="demo-arrow-row">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M10 3v14M5 13l5 5 5-5"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <div class="demo-gesture-row">
+                <div class="demo-g-card active">
+                  <div
+                    class="demo-g-photo"
+                    style="background: var(--primary-light)"
+                  >
+                    🫵
+                  </div>
+                  <span class="demo-g-label">Saya</span>
+                </div>
+                <div class="demo-g-card">
+                  <div
+                    class="demo-g-photo"
+                    style="background: var(--accent-light)"
+                  >
+                    🍽️
+                  </div>
+                  <span class="demo-g-label">Makan</span>
+                </div>
+                <div class="demo-g-card">
+                  <div
+                    class="demo-g-photo"
+                    style="background: var(--warm-light)"
+                  >
+                    🍚
+                  </div>
+                  <span class="demo-g-label">Nasi</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMPACT / STORYTELLING -->
+      <section class="impact-section" aria-labelledby="impact-title">
+        <div class="sb-container" style="text-align: center">
+          <span class="section-tag reveal">Mengapa Ini Penting</span>
+          <h2 class="section-title reveal reveal-delay-1" id="impact-title">
+            Setiap Gesture Adalah Hak untuk Dipahami
+          </h2>
+          <p
+            class="section-subtitle reveal reveal-delay-2"
+            style="margin: 0 auto 2.5rem"
+          >
+            Ketika komunikasi terputus, bukan hanya pesan yang hilang — tapi
+            juga kesempatan, pendidikan, dan koneksi sosial.
+          </p>
+          <div class="impact-grid">
+            <div class="impact-card reveal">
+              <span class="impact-icon" aria-hidden="true">👥</span>
+              <div class="impact-num">2,5 Juta</div>
+              <div class="impact-label">
+                penyandang disabilitas rungu di Indonesia
+              </div>
+            </div>
+            <div class="impact-card reveal reveal-delay-1">
+              <span class="impact-icon" aria-hidden="true">🏫</span>
+              <div class="impact-num">700+</div>
+              <div class="impact-label">SLB melayani siswa tunarungu</div>
+            </div>
+            <div class="impact-card reveal reveal-delay-2">
+              <span class="impact-icon" aria-hidden="true">🤝</span>
+              <div class="impact-num">1981</div>
+              <div class="impact-label">
+                GERKATIN aktif memperjuangkan hak Tuli
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section class="features-section" aria-labelledby="features-title">
+        <div class="sb-container">
+          <span class="section-tag reveal">Fitur Utama</span>
+          <h2 class="section-title reveal reveal-delay-1" id="features-title">
+            Satu Platform, Banyak Cara Memahami
+          </h2>
+          <p class="section-subtitle reveal reveal-delay-2">
+            SignBridge+ menggabungkan teknologi dan empati untuk menciptakan
+            pengalaman belajar BISINDO yang menyeluruh.
+          </p>
+          <div class="features-grid">
+            <a href="translate.html" class="sb-card feature-card reveal">
+              <div class="sb-icon-box sb-icon-blue" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="22"
+                  height="22"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                >
+                  <path d="M4 4h7v7H4zM13 13h7v7h-7z" />
+                  <path d="M11 8l2 2M8 11l2 2" />
+                </svg>
+              </div>
+              <h3>Translate Instan</h3>
+              <p>
+                Terjemahkan kalimat Bahasa Indonesia ke gesture BISINDO dengan
+                visualisasi interaktif dan video.
+              </p>
+              <span class="fc-link">Jelajahi</span>
+            </a>
+            <a
+              href="kamus.html"
+              class="sb-card feature-card reveal reveal-delay-1"
+            >
+              <div class="sb-icon-box sb-icon-teal" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="22"
+                  height="22"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                >
+                  <rect x="4" y="2" width="16" height="20" rx="2" />
+                  <path d="M9 7h6M9 12h4M9 17h5" />
+                </svg>
+              </div>
+              <h3>Kamus BISINDO</h3>
+              <p>
+                Koleksi 30+ kata dengan filter kategori, deskripsi gerakan
+                detail, dan pencarian cepat.
+              </p>
+              <span class="fc-link">Jelajahi</span>
+            </a>
+            <a
+              href="edukasi.html"
+              class="sb-card feature-card reveal reveal-delay-2"
+            >
+              <div class="sb-icon-box sb-icon-warm" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="22"
+                  height="22"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="M8 12l3 3 5-5" />
+                </svg>
+              </div>
+              <h3>Edukasi Inklusif</h3>
+              <p>
+                Pelajari BISINDO, kenali komunitas Tuli, dan pahami pentingnya
+                inklusivitas melalui konten interaktif.
+              </p>
+              <span class="fc-link">Jelajahi</span>
+            </a>
+            <a
+              href="about.html"
+              class="sb-card feature-card reveal reveal-delay-3"
+            >
+              <div class="sb-icon-box sb-icon-purple" aria-hidden="true">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="22"
+                  height="22"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                >
+                  <circle cx="12" cy="6" r="3.5" />
+                  <path d="M12 11v10M6 15h12" />
+                </svg>
+              </div>
+              <h3>Aksesibilitas Penuh</h3>
+              <p>
+                Kontras tinggi, teks besar, navigasi keyboard, dan ARIA labels —
+                dirancang untuk semua orang.
+              </p>
+              <span class="fc-link">Jelajahi</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- VALUE PROPOSITION -->
+      <section
+        class="value-section"
+        aria-labelledby="value-title"
+        style="background: var(--bg)"
+      >
+        <div class="sb-container" style="text-align: center">
+          <span class="section-tag reveal">Keunikan SignBridge+</span>
+          <h2 class="section-title reveal reveal-delay-1" id="value-title">
+            Bukan Sekedar Translator
+          </h2>
+          <p
+            class="section-subtitle reveal reveal-delay-2"
+            style="margin: 0 auto 2.5rem"
+          >
+            SignBridge+ menggabungkan edukasi, teknologi, dan dampak sosial
+            dalam satu platform yang mudah diakses siapa saja.
+          </p>
+          <div class="value-grid">
+            <div class="value-card reveal">
+              <span class="value-icon" aria-hidden="true">📖</span>
+              <h3>Edukatif</h3>
+              <p>
+                Bukan hanya menerjemahkan, tapi juga mengajarkan konteks dan
+                budaya di balik setiap gerakan BISINDO.
+              </p>
+            </div>
+            <div class="value-card reveal reveal-delay-1">
+              <span class="value-icon" aria-hidden="true">♿</span>
+              <h3>Aksesibel</h3>
+              <p>
+                Didesain dengan standar WCAG — kontras tinggi, keyboard nav,
+                screen reader ready, untuk semua kalangan.
+              </p>
+            </div>
+            <div class="value-card reveal reveal-delay-2">
+              <span class="value-icon" aria-hidden="true">🌍</span>
+              <h3>Berdampak</h3>
+              <p>
+                Setiap pengguna baru adalah satu langkah menuju masyarakat yang
+                lebih inklusif dan memahami BISINDO.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta-section" aria-labelledby="cta-title">
+        <div class="cta-inner reveal">
+          <h2 class="cta-title" id="cta-title">
+            Mulai Berkomunikasi Tanpa Batas
+          </h2>
+          <p class="cta-subtitle">
+            Bergabunglah dalam misi inklusi. Setiap kata yang kamu terjemahkan
+            adalah satu langkah menuju pemahaman yang lebih baik.
+          </p>
+          <div class="cta-actions">
+            <a href="translate.html" class="btn-cta-primary">
+              Coba Translate Sekarang
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  d="M3 8h10M9 4l4 4-4 4"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <a href="kamus.html" class="btn-cta-outline">Jelajahi Kamus</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ONBOARDING MODAL -->
+    <div
+      class="onboarding-overlay"
+      id="onboarding-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Panduan pengguna baru"
+    >
+      <div class="onboarding-modal">
+        <button
+          class="onboarding-close"
+          id="onboarding-close"
+          aria-label="Tutup"
+        >
+          ✕
+        </button>
+        <div class="onboarding-dots"></div>
+        <div class="onboarding-content">
+          <span class="onboarding-icon" id="onboarding-icon">🤟</span>
+          <h2 class="onboarding-title" id="onboarding-title"></h2>
+          <p class="onboarding-desc" id="onboarding-desc"></p>
+        </div>
+        <div class="onboarding-actions">
+          <button
+            class="sb-btn-secondary"
+            id="onboarding-prev"
+            style="display: none"
+          >
+            Kembali
+          </button>
+          <button class="sb-btn-primary" id="onboarding-next">Lanjut</button>
+        </div>
       </div>
     </div>
-  </footer>
 
-  <script src="js/script.js"></script>
-</body>
+    <!-- FOOTER -->
+    <footer role="contentinfo">
+      <div class="footer-container">
+        <div class="footer-top">
+          <div>
+            <div class="footer-brand">
+              <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="14" fill="url(#fg)" />
+                <path
+                  d="M16 10c-2 0-3.5 1-4 2.5-.3.8 0 1.7.5 2.3l3 3.2c.3.3.7.3 1 0l3-3.2c.5-.6.8-1.5.5-2.3-.5-1.5-2-2.5-4-2.5z"
+                  fill="white"
+                  opacity="0.9"
+                />
+                <defs>
+                  <linearGradient id="fg" x1="0" y1="0" x2="32" y2="32">
+                    <stop stop-color="#1565C0" />
+                    <stop offset="1" stop-color="#00897B" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              SignBridge<span style="color: var(--accent)">+</span>
+            </div>
+            <p class="footer-desc">
+              Jembatan komunikasi digital untuk teman tuli dan masyarakat umum.
+            </p>
+          </div>
+          <div>
+            <h4>Navigasi</h4>
+            <ul>
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="translate.html">Translate</a></li>
+              <li><a href="kamus.html">Kamus</a></li>
+              <li><a href="edukasi.html">Edukasi</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Info</h4>
+            <ul>
+              <li><a href="about.html">Tentang</a></li>
+              <li><a href="contact.html">Kontak</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2024 SignBridge+ — Dibuat dengan ❤️ untuk inklusi</span>
+          <span>Platform penerjemah BISINDO inklusif</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
 </html>
