@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tentang Kami — SignBridge+</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/home.css" /> <!-- konsisten dengan beranda -->
     <link
       rel="icon"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤟</text></svg>"
@@ -113,9 +114,21 @@
     </div>
 
     <main>
-      <header class="page-header">
-        <h1>ℹ️ Tentang SignBridge+</h1>
-        <p>Mengenal lebih dekat platform komunikasi inklusif BISINDO</p>
+      <!-- HERO SECTION konsisten dengan beranda -->
+      <header class="hero" style="min-height: auto; padding: 4rem 2rem;">
+        <div class="hero-bg" aria-hidden="true">
+          <svg class="wave-svg" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 200 Q360 300 720 200 Q1080 100 1440 200 L1440 320 L0 320Z" fill="rgba(26,110,255,0.06)"/>
+            <path d="M0 240 Q400 280 800 240 Q1100 200 1440 240 L1440 320 L0 320Z" fill="rgba(0,200,150,0.04)"/>
+          </svg>
+          <div class="hero-dots"></div>
+        </div>
+        <div class="hero-container" style="text-align: center; grid-template-columns: 1fr; gap: 0;">
+          <div>
+            <h1 class="hero-title" style="margin-bottom: 0.5rem;">ℹ️ Tentang SignBridge+</h1>
+            <p class="hero-subtitle" style="margin: 0 auto;">Mengenal lebih dekat platform komunikasi inklusif BISINDO</p>
+          </div>
+        </div>
       </header>
 
       <section class="about-section">
@@ -584,12 +597,16 @@
       </section>
     </main>
 
+    <!-- FOOTER konsisten dengan beranda -->
     <footer role="contentinfo">
       <div class="footer-container">
         <div class="footer-top">
           <div>
             <div class="footer-brand">
-              <div class="brand-icon">🤟</div>
+              <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
+                <path d="M14 4C9.58 4 6 7.58 6 12c0 2.5 1.1 4.74 2.85 6.27L8 24h8l-.85-5.73C16.9 16.74 18 14.5 18 12c0-4.42-3.58-8-8-8z" fill="url(#fg1)"/>
+                <defs><linearGradient id="fg1" x1="6" y1="4" x2="22" y2="26" gradientUnits="userSpaceOnUse"><stop stop-color="#1A6EFF"/><stop offset="1" stop-color="#00C896"/></linearGradient></defs>
+              </svg>
               SignBridge<span style="color: var(--accent)">+</span>
             </div>
             <p class="footer-desc">
