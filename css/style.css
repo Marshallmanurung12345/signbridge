@@ -1834,3 +1834,142 @@ footer {
   .tab-btn { flex: 1; padding: 0.5rem; font-size: 0.8rem; }
   .gesture-buttons-grid { grid-template-columns: repeat(3, 1fr); }
 }
+
+/* ============================================
+   Minimal Hero untuk Halaman Beranda
+   ============================================ */
+
+.hero {
+  min-height: auto;
+  padding: 3rem 2rem;
+}
+
+.hero-container {
+  grid-template-columns: 1fr 0.8fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin-bottom: 1rem;
+}
+
+.hero-title br {
+  display: none;
+}
+
+.hero-title .highlight {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-actions {
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+.hero-stats {
+  margin-top: 2rem;
+  justify-content: flex-start;
+  gap: 2rem;
+  border-top: none;
+  padding-top: 0;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-card-demo {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  width: 100%;
+  max-width: 360px;
+  animation: none; /* Hapus animasi float agar lebih tenang */
+}
+
+.demo-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.demo-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #FF5F57;
+}
+.demo-dot:nth-child(2) { background: #FEBC2E; }
+.demo-dot:nth-child(3) { background: #28C840; }
+
+.demo-title-bar {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-left: 0.25rem;
+}
+
+.demo-gesture-row {
+  display: flex;
+  justify-content: space-around;
+  gap: 0.75rem;
+}
+
+.demo-gesture-card {
+  background: var(--primary-light);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+  text-align: center;
+  flex: 1;
+  transition: transform 0.2s ease;
+  animation: none; /* Hapus animasi pulse */
+}
+.demo-gesture-card:hover {
+  transform: translateY(-4px);
+}
+
+.demo-gesture-emoji {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.demo-gesture-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+  .hero-stats {
+    justify-content: center;
+  }
+  .hero-visual {
+    order: -1;
+  }
+  .hero-card-demo {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}
