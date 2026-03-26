@@ -1,202 +1,405 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontak — SignBridge+</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤟</text></svg>">
-</head>
-<body data-page="contact">
-
-  <nav class="navbar" role="navigation" aria-label="Menu utama">
-    <a href="index.html" class="nav-brand">
-      <div class="brand-icon" aria-hidden="true">🤟</div>
-      SignBridge<span class="brand-plus">+</span>
-    </a>
-    <ul class="nav-menu" role="list">
-      <li><a href="index.html" class="nav-link">Beranda</a></li>
-      <li><a href="translate.html" class="nav-link">Translate</a></li>
-      <li><a href="kamus.html" class="nav-link">Kamus</a></li>
-      <li><a href="edukasi.html" class="nav-link">Edukasi</a></li>
-      <li><a href="about.html" class="nav-link">Tentang</a></li>
-      <li><a href="contact.html" class="nav-link active" aria-current="page">Kontak</a></li>
-    </ul>
-    <div class="nav-actions">
-      <div class="accessibility-bar">
-        <button class="acc-btn" id="btn-contrast" title="Kontras Tinggi" aria-label="Toggle kontras tinggi">🎨</button>
-        <button class="acc-btn" id="btn-large-text" title="Perbesar Teks" aria-label="Toggle ukuran teks">🔍</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontak — SignBridge+</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤟</text></svg>"
+    />
+  </head>
+  <body data-page="contact">
+    <nav class="navbar" role="navigation" aria-label="Menu utama">
+      <a href="index.html" class="nav-brand">
+        <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
+          <path
+            d="M14 4C9.58 4 6 7.58 6 12c0 2.5 1.1 4.74 2.85 6.27L8 24h8l-.85-5.73C16.9 16.74 18 14.5 18 12c0-4.42-3.58-8-8-8z"
+            fill="url(#nb1)"
+          />
+          <defs>
+            <linearGradient
+              id="nb1"
+              x1="6"
+              y1="4"
+              x2="22"
+              y2="26"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#1A6EFF" />
+              <stop offset="1" stop-color="#00C896" />
+            </linearGradient>
+          </defs>
+        </svg>
+        SignBridge<span class="brand-plus">+</span>
+      </a>
+      <ul class="nav-menu" role="list">
+        <li><a href="index.html" class="nav-link">Beranda</a></li>
+        <li><a href="translate.html" class="nav-link">Translate</a></li>
+        <li><a href="kamus.html" class="nav-link">Kamus</a></li>
+        <li><a href="edukasi.html" class="nav-link">Edukasi</a></li>
+        <li><a href="about.html" class="nav-link">Tentang</a></li>
+        <li>
+          <a href="contact.html" class="nav-link active" aria-current="page"
+            >Kontak</a
+          >
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <div class="accessibility-bar">
+          <button
+            class="acc-btn"
+            id="btn-contrast"
+            title="Kontras Tinggi"
+            aria-label="Toggle kontras tinggi"
+          >
+            🎨
+          </button>
+          <button
+            class="acc-btn"
+            id="btn-large-text"
+            title="Perbesar Teks"
+            aria-label="Toggle ukuran teks"
+          >
+            🔍
+          </button>
+        </div>
+        <a href="translate.html" class="btn-nav-cta">Mulai Translate</a>
       </div>
-      <a href="translate.html" class="btn-nav-cta">Mulai Translate</a>
+      <button class="hamburger" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="mobile-nav-overlay" aria-hidden="true"></div>
+    <div class="mobile-menu">
+      <a href="index.html" class="nav-link">🏠 Beranda</a>
+      <a href="translate.html" class="nav-link">🔄 Translate</a>
+      <a href="kamus.html" class="nav-link">📚 Kamus</a>
+      <a href="edukasi.html" class="nav-link">🎓 Edukasi</a>
+      <a href="about.html" class="nav-link">ℹ️ Tentang</a>
+      <a href="contact.html" class="nav-link active">📞 Kontak</a>
     </div>
-    <button class="hamburger" aria-label="Buka menu"><span></span><span></span><span></span></button>
-  </nav>
-  <div class="mobile-nav-overlay" aria-hidden="true"></div>
-  <div class="mobile-menu">
-    <a href="index.html" class="nav-link">🏠 Beranda</a>
-    <a href="translate.html" class="nav-link">🔄 Translate</a>
-    <a href="kamus.html" class="nav-link">📚 Kamus</a>
-    <a href="edukasi.html" class="nav-link">🎓 Edukasi</a>
-    <a href="about.html" class="nav-link">ℹ️ Tentang</a>
-    <a href="contact.html" class="nav-link active">📞 Kontak</a>
-  </div>
 
-  <main>
-    <header class="page-header">
-      <h1>📞 Hubungi Kami</h1>
-      <p>Punya pertanyaan, saran, atau ingin berkolaborasi? Kami senang mendengar dari kamu!</p>
-    </header>
+    <main>
+      <header class="page-header">
+        <h1>📞 Hubungi Kami</h1>
+        <p>
+          Punya pertanyaan, saran, atau ingin berkolaborasi? Kami senang
+          mendengar dari kamu!
+        </p>
+      </header>
 
-    <section class="contact-section">
-      <div class="contact-container">
-        <div class="contact-grid">
+      <section class="contact-section">
+        <div class="contact-container">
+          <div class="contact-grid">
+            <!-- Info Tim -->
+            <div class="contact-info">
+              <div class="section-badge" style="margin-bottom: 1rem">
+                👥 Tim Kami
+              </div>
+              <h2>SignBridge+ Team</h2>
+              <p>
+                Kami adalah tim yang bersemangat dalam bidang teknologi dan
+                inklusi sosial. SignBridge+ adalah proyek kami untuk INNOVATE
+                2024 — lomba inovasi teknologi untuk perubahan sosial.
+              </p>
 
-          <!-- Info Tim -->
-          <div class="contact-info">
-            <div class="section-badge" style="margin-bottom: 1rem;">👥 Tim Kami</div>
-            <h2>SignBridge+ Team</h2>
-            <p>
-              Kami adalah tim yang bersemangat dalam bidang teknologi dan inklusi sosial.
-              SignBridge+ adalah proyek kami untuk INNOVATE 2024 — lomba inovasi teknologi untuk perubahan sosial.
-            </p>
+              <!-- Team Cards -->
+              <div class="team-card">
+                <div class="team-avatar av1" aria-hidden="true">👨‍💻</div>
+                <div class="team-name">Nama Ketua Tim</div>
+                <div class="team-role">Ketua Tim & Full-stack Developer</div>
+                <div class="team-email">
+                  <span aria-hidden="true">📧</span>
+                  <span>ketua@signbridge.id</span>
+                </div>
+              </div>
 
-            <!-- Team Cards -->
-            <div class="team-card">
-              <div class="team-avatar av1" aria-hidden="true">👨‍💻</div>
-              <div class="team-name">Nama Ketua Tim</div>
-              <div class="team-role">Ketua Tim & Full-stack Developer</div>
-              <div class="team-email">
-                <span aria-hidden="true">📧</span>
-                <span>ketua@signbridge.id</span>
+              <div class="team-card">
+                <div class="team-avatar av2" aria-hidden="true">🎨</div>
+                <div class="team-name">Nama Anggota 2</div>
+                <div class="team-role">UI/UX Designer & Frontend Developer</div>
+                <div class="team-email">
+                  <span aria-hidden="true">📧</span>
+                  <span>design@signbridge.id</span>
+                </div>
+              </div>
+
+              <div class="team-card">
+                <div class="team-avatar av3" aria-hidden="true">📊</div>
+                <div class="team-name">Nama Anggota 3</div>
+                <div class="team-role">Riset & Konten BISINDO</div>
+                <div class="team-email">
+                  <span aria-hidden="true">📧</span>
+                  <span>riset@signbridge.id</span>
+                </div>
+              </div>
+
+              <!-- Institusi -->
+              <div
+                style="
+                  background: var(--surface2);
+                  border-radius: var(--radius);
+                  padding: 1.25rem;
+                  border: 1px solid var(--border);
+                  margin-top: 1.5rem;
+                "
+              >
+                <h4
+                  style="
+                    font-size: 0.85rem;
+                    color: var(--text-muted);
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.06em;
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  🏫 Instansi
+                </h4>
+                <p
+                  style="
+                    font-size: 0.95rem;
+                    font-weight: 600;
+                    color: var(--text);
+                    margin-bottom: 0.25rem;
+                  "
+                >
+                  Nama Sekolah / Universitas
+                </p>
+                <p style="font-size: 0.85rem; color: var(--text-muted)">
+                  Kota, Provinsi, Indonesia
+                </p>
+                <div
+                  style="
+                    margin-top: 1rem;
+                    display: flex;
+                    gap: 0.75rem;
+                    flex-wrap: wrap;
+                  "
+                >
+                  <span
+                    style="
+                      background: var(--primary-light);
+                      color: var(--primary);
+                      padding: 0.25rem 0.75rem;
+                      border-radius: 50px;
+                      font-size: 0.75rem;
+                      font-weight: 600;
+                    "
+                    >INNOVATE 2024</span
+                  >
+                  <span
+                    style="
+                      background: rgba(0, 200, 150, 0.1);
+                      color: var(--accent-dark);
+                      padding: 0.25rem 0.75rem;
+                      border-radius: 50px;
+                      font-size: 0.75rem;
+                      font-weight: 600;
+                    "
+                    >Kategori Inklusi Sosial</span
+                  >
+                </div>
               </div>
             </div>
 
-            <div class="team-card">
-              <div class="team-avatar av2" aria-hidden="true">🎨</div>
-              <div class="team-name">Nama Anggota 2</div>
-              <div class="team-role">UI/UX Designer & Frontend Developer</div>
-              <div class="team-email">
-                <span aria-hidden="true">📧</span>
-                <span>design@signbridge.id</span>
+            <!-- Contact Form -->
+            <div>
+              <div class="contact-form-card">
+                <h3>📨 Kirim Pesan</h3>
+                <form id="contact-form" novalidate aria-label="Form kontak">
+                  <div class="form-group">
+                    <label class="form-label" for="field-name"
+                      >Nama Lengkap</label
+                    >
+                    <input
+                      type="text"
+                      id="field-name"
+                      class="form-input"
+                      placeholder="Masukkan nama kamu"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="field-email">Email</label>
+                    <input
+                      type="email"
+                      id="field-email"
+                      class="form-input"
+                      placeholder="email@contoh.com"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="field-subject">Subjek</label>
+                    <input
+                      type="text"
+                      id="field-subject"
+                      class="form-input"
+                      placeholder="Topik pesan kamu"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="field-message">Pesan</label>
+                    <textarea
+                      id="field-message"
+                      class="form-textarea"
+                      placeholder="Ceritakan masalah, saran, atau ideamu..."
+                      required
+                      aria-required="true"
+                    ></textarea>
+                  </div>
+                  <button type="submit" class="btn-submit">
+                    <span>📨</span> Kirim Pesan
+                  </button>
+                </form>
               </div>
-            </div>
 
-            <div class="team-card">
-              <div class="team-avatar av3" aria-hidden="true">📊</div>
-              <div class="team-name">Nama Anggota 3</div>
-              <div class="team-role">Riset & Konten BISINDO</div>
-              <div class="team-email">
-                <span aria-hidden="true">📧</span>
-                <span>riset@signbridge.id</span>
-              </div>
-            </div>
-
-            <!-- Institusi -->
-            <div style="background: var(--surface2); border-radius: var(--radius); padding: 1.25rem; border: 1px solid var(--border); margin-top: 1.5rem;">
-              <h4 style="font-size: 0.85rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem;">🏫 Instansi</h4>
-              <p style="font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem;">Nama Sekolah / Universitas</p>
-              <p style="font-size: 0.85rem; color: var(--text-muted);">Kota, Provinsi, Indonesia</p>
-              <div style="margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                <span style="background: var(--primary-light); color: var(--primary); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600;">INNOVATE 2024</span>
-                <span style="background: rgba(0,200,150,0.1); color: var(--accent-dark); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600;">Kategori Inklusi Sosial</span>
+              <!-- Quick Links -->
+              <div
+                style="
+                  margin-top: 1.5rem;
+                  background: var(--surface);
+                  border-radius: var(--radius);
+                  padding: 1.5rem;
+                  border: 1px solid var(--border);
+                "
+              >
+                <h4
+                  style="
+                    font-size: 0.9rem;
+                    font-weight: 700;
+                    margin-bottom: 1rem;
+                    color: var(--text);
+                  "
+                >
+                  🔗 Link Cepat
+                </h4>
+                <div
+                  style="display: flex; flex-direction: column; gap: 0.625rem"
+                >
+                  <a
+                    href="translate.html"
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 0.75rem;
+                      padding: 0.75rem;
+                      background: var(--bg);
+                      border-radius: var(--radius-sm);
+                      border: 1px solid var(--border);
+                      font-size: 0.875rem;
+                      font-weight: 500;
+                      color: var(--text);
+                      transition: var(--transition);
+                    "
+                  >
+                    <span>🔄</span> Coba Fitur Translate
+                  </a>
+                  <a
+                    href="kamus.html"
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 0.75rem;
+                      padding: 0.75rem;
+                      background: var(--bg);
+                      border-radius: var(--radius-sm);
+                      border: 1px solid var(--border);
+                      font-size: 0.875rem;
+                      font-weight: 500;
+                      color: var(--text);
+                      transition: var(--transition);
+                    "
+                  >
+                    <span>📖</span> Jelajahi Kamus BISINDO
+                  </a>
+                  <a
+                    href="edukasi.html"
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 0.75rem;
+                      padding: 0.75rem;
+                      background: var(--bg);
+                      border-radius: var(--radius-sm);
+                      border: 1px solid var(--border);
+                      font-size: 0.875rem;
+                      font-weight: 500;
+                      color: var(--text);
+                      transition: var(--transition);
+                    "
+                  >
+                    <span>🎓</span> Pelajari BISINDO
+                  </a>
+                  <a
+                    href="about.html"
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 0.75rem;
+                      padding: 0.75rem;
+                      background: var(--bg);
+                      border-radius: var(--radius-sm);
+                      border: 1px solid var(--border);
+                      font-size: 0.875rem;
+                      font-weight: 500;
+                      color: var(--text);
+                      transition: var(--transition);
+                    "
+                  >
+                    <span>ℹ️</span> Tentang Proyek Ini
+                  </a>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+    </main>
 
-          <!-- Contact Form -->
+    <footer role="contentinfo">
+      <div class="footer-container">
+        <div class="footer-top">
           <div>
-            <div class="contact-form-card">
-              <h3>📨 Kirim Pesan</h3>
-              <form id="contact-form" novalidate aria-label="Form kontak">
-                <div class="form-group">
-                  <label class="form-label" for="field-name">Nama Lengkap</label>
-                  <input
-                    type="text"
-                    id="field-name"
-                    class="form-input"
-                    placeholder="Masukkan nama kamu"
-                    required
-                    aria-required="true"
-                  >
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="field-email">Email</label>
-                  <input
-                    type="email"
-                    id="field-email"
-                    class="form-input"
-                    placeholder="email@contoh.com"
-                    required
-                    aria-required="true"
-                  >
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="field-subject">Subjek</label>
-                  <input
-                    type="text"
-                    id="field-subject"
-                    class="form-input"
-                    placeholder="Topik pesan kamu"
-                  >
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="field-message">Pesan</label>
-                  <textarea
-                    id="field-message"
-                    class="form-textarea"
-                    placeholder="Ceritakan masalah, saran, atau ideamu..."
-                    required
-                    aria-required="true"
-                  ></textarea>
-                </div>
-                <button type="submit" class="btn-submit">
-                  <span>📨</span> Kirim Pesan
-                </button>
-              </form>
+            <div class="footer-brand">
+              <div class="brand-icon">🤟</div>
+              SignBridge<span style="color: var(--accent)">+</span>
             </div>
-
-            <!-- Quick Links -->
-            <div style="margin-top: 1.5rem; background: var(--surface); border-radius: var(--radius); padding: 1.5rem; border: 1px solid var(--border);">
-              <h4 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 1rem; color: var(--text);">🔗 Link Cepat</h4>
-              <div style="display: flex; flex-direction: column; gap: 0.625rem;">
-                <a href="translate.html" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: var(--bg); border-radius: var(--radius-sm); border: 1px solid var(--border); font-size: 0.875rem; font-weight: 500; color: var(--text); transition: var(--transition);">
-                  <span>🔄</span> Coba Fitur Translate
-                </a>
-                <a href="kamus.html" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: var(--bg); border-radius: var(--radius-sm); border: 1px solid var(--border); font-size: 0.875rem; font-weight: 500; color: var(--text); transition: var(--transition);">
-                  <span>📖</span> Jelajahi Kamus BISINDO
-                </a>
-                <a href="edukasi.html" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: var(--bg); border-radius: var(--radius-sm); border: 1px solid var(--border); font-size: 0.875rem; font-weight: 500; color: var(--text); transition: var(--transition);">
-                  <span>🎓</span> Pelajari BISINDO
-                </a>
-                <a href="about.html" style="display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem; background: var(--bg); border-radius: var(--radius-sm); border: 1px solid var(--border); font-size: 0.875rem; font-weight: 500; color: var(--text); transition: var(--transition);">
-                  <span>ℹ️</span> Tentang Proyek Ini
-                </a>
-              </div>
-            </div>
+            <p class="footer-desc">
+              Jembatan komunikasi digital untuk teman tuli dan masyarakat umum.
+            </p>
           </div>
-
+          <div class="footer-col">
+            <h4>Navigasi</h4>
+            <ul>
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="translate.html">Translate</a></li>
+              <li><a href="kamus.html">Kamus</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Info</h4>
+            <ul>
+              <li><a href="about.html">Tentang</a></li>
+              <li><a href="contact.html">Kontak</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© 2024 SignBridge+ — Dibuat dengan
+            <span class="footer-heart">❤️</span> untuk inklusi</span
+          >
+          <span>🤟 BISINDO untuk Semua</span>
         </div>
       </div>
-    </section>
-  </main>
+    </footer>
 
-  <footer role="contentinfo">
-    <div class="footer-container">
-      <div class="footer-top">
-        <div>
-          <div class="footer-brand"><div class="brand-icon">🤟</div>SignBridge<span style="color:var(--accent);">+</span></div>
-          <p class="footer-desc">Jembatan komunikasi digital untuk teman tuli dan masyarakat umum.</p>
-        </div>
-        <div class="footer-col"><h4>Navigasi</h4><ul><li><a href="index.html">Beranda</a></li><li><a href="translate.html">Translate</a></li><li><a href="kamus.html">Kamus</a></li></ul></div>
-        <div class="footer-col"><h4>Info</h4><ul><li><a href="about.html">Tentang</a></li><li><a href="contact.html">Kontak</a></li></ul></div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2024 SignBridge+ — Dibuat dengan <span class="footer-heart">❤️</span> untuk inklusi</span>
-        <span>🤟 BISINDO untuk Semua</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/script.js"></script>
-</body>
+    <script src="js/script.js"></script>
+  </body>
 </html>
