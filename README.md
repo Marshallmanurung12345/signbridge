@@ -26,6 +26,7 @@ SignBridge+  adalah platform web yang berfungsi sebagai jembatan komunikasi anta
 Karya ini mengusung subtema  “Inklusi Sosial melalui Teknologi” dengan fokus pada pemberdayaan komunitas tuli melalui pemanfaatan web modern yang responsif dan aksesibel.
 
 ## Link Website
+https://signbridge-bay.vercel.app/
 
 ---
 
@@ -42,7 +43,3 @@ Karya ini mengusung subtema  “Inklusi Sosial melalui Teknologi” dengan fokus
 - Font: Plus Jakarta Sans, DM Serif Display
 - JSON sebagai basis data kamus
 
-## Cara Menjalankan Lokal
-1. Clone repositori:
-   ```bash
-   git clone https://github.com/Marshallmanurung12345/signbridge.git
