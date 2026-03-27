@@ -32,6 +32,7 @@ SignBridge+ adalah platform web yang berfungsi sebagai jembatan komunikasi antar
 Karya ini mengusung subtema “Inklusi Sosial melalui Teknologi” dengan fokus pada pemberdayaan komunitas tuli melalui pemanfaatan web modern yang responsif dan aksesibel.
 
 ## Link Website
+https://signbridge-bay.vercel.app/
 
 ---
 
@@ -93,6 +94,7 @@ signbridge/
 └── README.md
 ```
 
+<<<<<<< HEAD
 ## Cara Menjalankan Lokal
 
 1. Clone repositori:
@@ -121,3 +123,5 @@ signbridge/
 4. Navigasi ke halaman translate untuk mencoba fitur popup video otomatis.
 
 5. Atau akses hasil deploy: https://signbridge-bay.vercel.app/
+=======
+>>>>>>> bc33208548a66d8f8601764e6d54c368cc6d886a
